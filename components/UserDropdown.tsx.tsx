@@ -22,7 +22,7 @@ interface Props {
     onClose?: () => void;
 }
 
-export default function UserDropdown({ open, onClose }: Props) {
+export default function UserDropdown({ open }: Props) {
     if (!open) return null;
 
     return (
