@@ -1,4 +1,4 @@
-import FeaturedTours from "@/components/ FeaturedTours";
+import FeaturedTours from "@/components/FeaturedTours";
 import Hero from "@/components/Hero";
 import PopularDestinationsSection from "@/components/PopularDestinationsSection";
 import PriceSection from "@/components/PriceSection";

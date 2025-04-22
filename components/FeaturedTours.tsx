@@ -1,11 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import AddToCartModal from "./AddToCartModal";
 import "swiper/css";
 import "swiper/css/pagination";
-
 import Image from "next/image";
 import {
     FaCheckCircle,
@@ -16,9 +16,23 @@ import {
     FaCartPlus,
     FaRegHeart,
 } from "react-icons/fa";
-import { useState } from "react";
 
-const tours = [
+// ✅ Define the Tour type
+type Tour = {
+    title: string;
+    image: string;
+    location: string;
+    price: number;
+    rating: number;
+    reviews: number;
+    duration: string;
+    difficulty: string;
+    highlights: string[];
+    badge: string;
+    isWishlisted: boolean;
+};
+
+const tours: Tour[] = [
     {
         title: "Sahara Adventure",
         image: "/destinations/sahara.webp",
@@ -39,7 +53,7 @@ const tours = [
         price: 270,
         rating: 4.8,
         reviews: 105,
-        duration: "half Days",
+        duration: "Half Day",
         difficulty: "Easy",
         highlights: ["Scenic Roads", "Local Villages", "Mountain Pass"],
         badge: "Top Seller",
@@ -74,7 +88,7 @@ const tours = [
 ];
 
 export default function FeaturedToursSection() {
-    const [selectedTour, setSelectedTour] = useState<any | null>(null);
+    const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
 
     return (
         <section className="bg-[#f8f9ff] py-20">
@@ -104,7 +118,6 @@ export default function FeaturedToursSection() {
                     {tours.map((tour, idx) => (
                         <SwiperSlide key={idx}>
                             <div className="h-full bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 flex flex-col">
-                                {/* Image Section */}
                                 <div className="relative w-full h-60">
                                     <Image
                                         src={tour.image}
@@ -112,10 +125,8 @@ export default function FeaturedToursSection() {
                                         fill
                                         className="object-cover"
                                     />
-
-                                    {/* Action Icons */}
+                                    {/* Icons */}
                                     <div className="absolute top-2 left-2 flex gap-2">
-                                        {/* Wishlist */}
                                         <button
                                             aria-label="Wishlist"
                                             className="relative p-2 bg-white/80 hover:bg-white rounded-full shadow-sm transition"
@@ -132,7 +143,6 @@ export default function FeaturedToursSection() {
                                             )}
                                         </button>
 
-                                        {/* Cart */}
                                         <button
                                             aria-label="Add to cart"
                                             className="p-2 bg-white/80 hover:bg-white rounded-full shadow-sm transition"
@@ -140,26 +150,20 @@ export default function FeaturedToursSection() {
                                         >
                                             <FaCartPlus className="text-emerald-500 text-sm" />
                                         </button>
-
                                     </div>
 
-                                    {/* Badge */}
                                     <span className="absolute top-2 right-2 bg-teal-500 text-white text-xs px-2 py-1 rounded-md shadow-sm text-[11px] font-semibold">
                                         {tour.badge}
                                     </span>
                                 </div>
 
-                                {/* Tour Info */}
                                 <div className="p-5 flex flex-col flex-1">
                                     <h3 className="text-lg font-bold text-gray-800 mb-1">{tour.title}</h3>
                                     <p className="text-sm text-gray-500 mb-2">{tour.location}</p>
-
                                     <div className="flex items-center text-sm text-gray-600 mb-3 gap-2">
                                         <FaStar className="text-yellow-400" />
                                         <span>{tour.rating} ({tour.reviews} reviews)</span>
                                     </div>
-
-                                    {/* Highlights */}
                                     <ul className="text-sm text-gray-700 space-y-2 mb-4">
                                         {tour.highlights.map((item, i) => (
                                             <li key={i} className="flex items-center gap-2">
@@ -168,24 +172,16 @@ export default function FeaturedToursSection() {
                                             </li>
                                         ))}
                                     </ul>
-
-                                    {/* Duration + Difficulty */}
                                     <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
                                         <span className="flex items-center gap-2">
                                             <FaClock className="text-indigo-500" />
                                             {tour.duration}
                                         </span>
-                                        <span
-                                            className={`flex items-center gap-2 font-medium ${getDifficultyColor(
-                                                tour.difficulty
-                                            )}`}
-                                        >
+                                        <span className={`flex items-center gap-2 font-medium ${getDifficultyColor(tour.difficulty)}`}>
                                             <FaMountain />
                                             {tour.difficulty}
                                         </span>
                                     </div>
-
-                                    {/* Price + Book Button */}
                                     <div className="mt-auto flex justify-between items-center">
                                         <span className="text-xl font-bold text-gray-800">${tour.price}</span>
                                         <button className="bg-yellow-500 text-white text-sm px-4 py-2 rounded hover:bg-yellow-600 transition shadow-sm flex items-center gap-2">
@@ -198,35 +194,33 @@ export default function FeaturedToursSection() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+
                 <AddToCartModal
                     isOpen={!!selectedTour}
                     tour={selectedTour}
                     onClose={() => setSelectedTour(null)}
                 />
 
-
                 <div className="custom-featured-pagination mt-10 flex justify-center gap-3"></div>
             </div>
 
-            {/* Dots */}
             <style jsx global>{`
-        .custom-featured-pagination .swiper-pagination-bullet {
-          width: 10px;
-          height: 10px;
-          background: #e2e2e2;
-          opacity: 1;
-          border-radius: 9999px;
-          transition: background 0.3s ease;
-        }
-        .custom-featured-pagination .swiper-pagination-bullet-active {
-          background: #fbbf24;
-        }
-      `}</style>
+                .custom-featured-pagination .swiper-pagination-bullet {
+                    width: 10px;
+                    height: 10px;
+                    background: #e2e2e2;
+                    opacity: 1;
+                    border-radius: 9999px;
+                    transition: background 0.3s ease;
+                }
+                .custom-featured-pagination .swiper-pagination-bullet-active {
+                    background: #fbbf24;
+                }
+            `}</style>
         </section>
     );
 }
 
-// Color handler
 function getDifficultyColor(level: string) {
     switch (level.toLowerCase()) {
         case "easy":

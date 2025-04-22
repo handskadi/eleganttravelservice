@@ -55,7 +55,7 @@ export default function SupportPanel() {
                     <div className="bg-[#6b4eff] p-4 text-white">
                         <h3 className="text-2xl font-bold mb-1">Hi there 👋</h3>
                         <p className="text-sm text-indigo-100">
-                            We're here to help plan your next unforgettable journey.
+                            We&apos;re here to help plan your next unforgettable journey.
                         </p>
                     </div>
 
