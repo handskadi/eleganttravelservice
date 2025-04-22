@@ -51,7 +51,8 @@ export default function SupportPanel() {
 
             {/* Support panel */}
             {isOpen && (
-                <div className="fixed bottom-24 right-6 w-96 bg-white shadow-2xl rounded-lg overflow-hidden z-40 animate-slide-up">
+                <div className="fixed bottom-24 left-0 right-0 mx-auto w-[95%] sm:w-[90%] md:left-auto md:right-6 md:w-96 bg-white shadow-2xl rounded-lg overflow-hidden z-40 animate-slide-up">
+
                     <div className="bg-[#6b4eff] p-4 text-white">
                         <h3 className="text-2xl font-bold mb-1">Hi there 👋</h3>
                         <p className="text-sm text-indigo-100">
