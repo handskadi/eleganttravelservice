@@ -5,12 +5,16 @@ export default function Hero() {
     return (
         <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-10">
             <Image
-                src="/hero-desert-image.webp"
+                src="/background/hero-desert-image.webp"
                 alt="Desert adventure"
                 fill
                 priority
                 className="object-cover z-0"
             />
+
+
+            {/* Overlay */}
+
             <div className="absolute inset-0 bg-[rgba(0,0,0,0.5)] z-10" />
 
             <div className="relative z-20 container mx-auto px-6 md:px-8 lg:px-12 py-16">

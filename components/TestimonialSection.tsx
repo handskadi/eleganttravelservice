@@ -42,7 +42,7 @@ const testimonials = [
 export default function TestimonialSection() {
     return (
         <section className="bg-[#f8f9ff] py-20">
-            <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-12">
+            <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12">
                 <div className="text-center max-w-2xl mx-auto mb-14">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                         Testimonial <span className="text-yellow-500">from our Clients</span>
@@ -65,12 +65,13 @@ export default function TestimonialSection() {
                     autoplay={{ delay: 5000 }}
                     loop
                     breakpoints={{
+                        768: { slidesPerView: 2 },
                         1024: { slidesPerView: 3 },
                     }}
                 >
                     {testimonials.map((testimonial, idx) => (
-                        <SwiperSlide key={idx}>
-                            <div className="h-full flex flex-col bg-white rounded shadow p-6 min-h-[280px]">
+                        <SwiperSlide key={idx} className="h-full">
+                            <div className="flex flex-col h-full bg-white rounded-xl shadow-md p-6">
                                 <div className="flex gap-4 items-start mb-4">
                                     <Image
                                         src={testimonial.image}
@@ -80,9 +81,9 @@ export default function TestimonialSection() {
                                         className="rounded-full object-cover"
                                     />
                                     <div>
-                                        <p className="text-gray-600">{testimonial.content}</p>
-                                        <h4 className="font-semibold text-black mt-4">{testimonial.name}</h4>
-                                        <div className="flex gap-1 mt-2 text-yellow-500">
+                                        <p className="text-gray-600 text-sm">{testimonial.content}</p>
+                                        <h4 className="font-semibold text-gray-800 mt-4">{testimonial.name}</h4>
+                                        <div className="flex gap-1 mt-2 text-yellow-500 text-sm">
                                             {[...Array(5)].map((_, i) => (
                                                 <FaStar
                                                     key={i}
@@ -92,26 +93,27 @@ export default function TestimonialSection() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-auto" /> {/* Spacer to push content evenly */}
+                                <div className="mt-auto" />
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
 
+                {/* Pagination Dots */}
                 <div className="custom-pagination mt-10 flex justify-center gap-3"></div>
             </div>
 
             <style jsx global>{`
         .custom-pagination .swiper-pagination-bullet {
-          width: 12px;
-          height: 12px;
+          width: 10px;
+          height: 10px;
           background: #e2e2e2;
           opacity: 1;
           border-radius: 9999px;
           transition: background 0.3s ease;
         }
         .custom-pagination .swiper-pagination-bullet-active {
-          background: #fbbf24; /* yellow-400 */
+          background: #fbbf24;
         }
       `}</style>
         </section>

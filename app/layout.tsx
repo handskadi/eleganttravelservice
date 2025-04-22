@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer";
-
+import SupportPanel from "@/components/SupportPanel";
 
 
 const montserrat = Montserrat({
@@ -29,6 +29,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <SupportPanel /> {/* 👈 Floating support widget */}
         <Footer />
       </body>
     </html>
