@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FaHeart, FaCartPlus } from "react-icons/fa";
 
 export default function WishlistPanel() {
