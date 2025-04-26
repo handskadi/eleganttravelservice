@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Blocks/Footer";
 import SupportPanel from "@/components/SupportPanel";
 
 

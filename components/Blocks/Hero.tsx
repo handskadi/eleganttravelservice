@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SearchForm from "./SearchForm";
+import SearchForm from "../SearchForm";
 
 export default function Hero() {
     return (

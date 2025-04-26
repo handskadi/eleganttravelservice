@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import AddToCartModal from "./AddToCartModal";
+import AddToCartModal from "../Modals/AddToCartModal";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";

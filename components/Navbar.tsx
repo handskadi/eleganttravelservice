@@ -3,12 +3,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaHeart, FaShoppingCart, FaBell } from "react-icons/fa";
+
+import WishlistPanel from "./WishlistPanel";
+import CartPanel from "./CartPanel";
+import NotificationsPanel from "./NotificationsPanel";
 import UserDropdown from "./UserDropdown.tsx";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    const [wishlistOpen, setWishlistOpen] = useState(false);
+    const [cartOpen, setCartOpen] = useState(false);
+    const [notificationsOpen, setNotificationsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,49 +57,39 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Icons and Profile */}
+                {/* Right icons */}
                 <div className="flex items-center space-x-4 md:space-x-5">
-                    {/* Desktop: All icons | Mobile: Only wishlist */}
+                    {/* Desktop: Wishlist, Cart, Notification */}
                     <div className="flex items-center gap-4 relative">
-                        {/* Wishlist Icon (Always visible) */}
-                        <button className="relative text-white hover:text-amber-300 transition">
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                                2 6.5 3.5 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46
-                                5.99 14.96 5 16.5 5 18.5 5 20 6.5 20 8.5c0 3.78-3.4
-                                6.86-8.55 11.54L12 21.35z" />
-                            </svg>
+                        {/* Wishlist */}
+                        <button className="relative text-white hover:text-amber-300 transition" onClick={() => {
+                            setWishlistOpen(!wishlistOpen);
+                            setCartOpen(false);
+                            setNotificationsOpen(false);
+                        }}>
+                            <FaHeart className="w-6 h-6" />
                             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-semibold rounded-full w-4 h-4 flex items-center justify-center shadow">2</span>
                         </button>
 
-                        {/* Desktop Only */}
+                        {/* Desktop only */}
                         <div className="hidden md:flex items-center gap-4">
                             {/* Cart */}
-                            <button className="relative text-white hover:text-amber-300 transition">
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7
-                                    22s2-.9 2-2-.9-2-2-2zm10
-                                    0c-1.1 0-1.99.9-1.99 2S15.9 22 17
-                                    22s2-.9 2-2-.9-2-2-2zM7.16
-                                    14h9.93c.75 0 1.41-.41
-                                    1.75-1.03l3.58-6.49a1
-                                    1 0 00-.87-1.48H5.21l-.94-2H1v2h2l3.6
-                                    7.59-1.35 2.44c-.16.28-.25.61-.25.97
-                                    0 1.1.9 2 2 2h12v-2H7.42c-.14
-                                    0-.25-.11-.25-.25l.03-.12L7.16 14z" />
-                                </svg>
+                            <button className="relative text-white hover:text-amber-300 transition" onClick={() => {
+                                setCartOpen(!cartOpen);
+                                setWishlistOpen(false);
+                                setNotificationsOpen(false);
+                            }}>
+                                <FaShoppingCart className="w-6 h-6" />
                                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-semibold rounded-full w-4 h-4 flex items-center justify-center shadow">1</span>
                             </button>
 
-                            {/* Notification */}
-                            <button className="relative text-white hover:text-amber-300 transition">
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 22c1.1 0 2-.9 2-2h-4a2
-                                    2 0 002 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5
-                                    1.5 0 00-3 0v.68C7.63 5.36 6 7.92 6
-                                    11v5l-1.29 1.29a1 1 0 00.7 1.71h14.18a1 1 0
-                                    00.7-1.71L18 16z" />
-                                </svg>
+                            {/* Notifications */}
+                            <button className="relative text-white hover:text-amber-300 transition" onClick={() => {
+                                setNotificationsOpen(!notificationsOpen);
+                                setWishlistOpen(false);
+                                setCartOpen(false);
+                            }}>
+                                <FaBell className="w-6 h-6" />
                                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-semibold rounded-full w-4 h-4 flex items-center justify-center shadow">3</span>
                             </button>
                         </div>
@@ -130,7 +129,6 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-white/90 backdrop-blur-md px-4 py-4 space-y-4">
-                    {/* Mobile nav links */}
                     {[
                         { label: "Home", href: "#", active: true },
                         { label: "Destinations", href: "#" },
@@ -147,57 +145,33 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-                    {/* Mobile-only icons */}
+                    {/* Mobile icons */}
                     <div className="flex justify-around pt-4 border-t border-gray-200">
                         {/* Wishlist */}
-                        <button className="relative text-gray-700 hover:text-amber-600 transition">
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-      2 6.5 3.5 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46
-      5.99 14.96 5 16.5 5 18.5 5 20 6.5 20 8.5c0 3.78-3.4
-      6.86-8.55 11.54L12 21.35z" />
-                            </svg>
-                            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">
-                                2
-                            </span>
+                        <button className="relative text-gray-700 hover:text-amber-600 transition" onClick={() => setWishlistOpen(!wishlistOpen)}>
+                            <FaHeart className="w-6 h-6" />
+                            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">2</span>
                         </button>
 
                         {/* Cart */}
-                        <button className="relative text-gray-700 hover:text-amber-600 transition">
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7
-      22s2-.9 2-2-.9-2-2-2zm10
-      0c-1.1 0-1.99.9-1.99 2S15.9 22 17
-      22s2-.9 2-2-.9-2-2-2zM7.16
-      14h9.93c.75 0 1.41-.41
-      1.75-1.03l3.58-6.49a1
-      1 0 00-.87-1.48H5.21l-.94-2H1v2h2l3.6
-      7.59-1.35 2.44c-.16.28-.25.61-.25.97
-      0 1.1.9 2 2 2h12v-2H7.42c-.14
-      0-.25-.11-.25-.25l.03-.12L7.16 14z" />
-                            </svg>
-                            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">
-                                1
-                            </span>
+                        <button className="relative text-gray-700 hover:text-amber-600 transition" onClick={() => setCartOpen(!cartOpen)}>
+                            <FaShoppingCart className="w-6 h-6" />
+                            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">1</span>
                         </button>
 
                         {/* Notifications */}
-                        <button className="relative text-gray-700 hover:text-amber-600 transition">
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 22c1.1 0 2-.9 2-2h-4a2
-      2 0 002 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5
-      1.5 0 00-3 0v.68C7.63 5.36 6 7.92 6
-      11v5l-1.29 1.29a1 1 0 00.7 1.71h14.18a1 1 0
-      00.7-1.71L18 16z" />
-                            </svg>
-                            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">
-                                3
-                            </span>
+                        <button className="relative text-gray-700 hover:text-amber-600 transition" onClick={() => setNotificationsOpen(!notificationsOpen)}>
+                            <FaBell className="w-6 h-6" />
+                            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">3</span>
                         </button>
                     </div>
-
                 </div>
             )}
+
+            {/* Panels */}
+            {wishlistOpen && <WishlistPanel />}
+            {cartOpen && <CartPanel />}
+            {notificationsOpen && <NotificationsPanel />}
         </nav>
     );
 }
