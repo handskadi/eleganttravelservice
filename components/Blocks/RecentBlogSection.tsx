@@ -6,125 +6,148 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { FaCalendarAlt, FaClock, FaArrowRight, FaUser } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 const blogPosts = [
-    {
-        image: "/blog/post1.webp",
-        title: "Low Cost Advertising",
-        tags: ["Travel", "Life Style"],
-        excerpt: "Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.",
-        date: "31st January,2018",
-    },
-    {
-        image: "/blog/post2.webp",
-        title: "Creative Outdoor Ads",
-        tags: ["Travel", "Life Style"],
-        excerpt: "Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.",
-        date: "31st January,2018",
-    },
-    {
-        image: "/blog/post3.webp",
-        title: "It's Classified How To Utilize Free",
-        tags: ["Travel", "Life Style"],
-        excerpt: "Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.",
-        date: "31st January,2018",
-    },
-    {
-        image: "/blog/post4.webp",
-        title: "Travel destination for 2025",
-        tags: ["Travel", "Life Style"],
-        excerpt: "Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.",
-        date: "31st January,2018",
-    },
+  {
+    image: "/blog/post1.webp",
+    category: "Travel Guide",
+    title: "10 Reasons to Visit Chefchaouen in 2025",
+    excerpt: "The blue city is more than a photogenic backdrop. Here's how to experience the authentic soul of Morocco's most beautiful mountain town.",
+    date: "June 12, 2025",
+    readTime: "6 min read",
+    author: "Youssef Benali",
+    slug: "/blog/chefchaouen-2025",
+  },
+  {
+    image: "/blog/post2.webp",
+    category: "Packing Guide",
+    title: "The Ultimate Sahara Desert Packing List",
+    excerpt: "From merino wool base layers to sunrise alarm times — everything you need for a comfortable, unforgettable desert overnight.",
+    date: "May 28, 2025",
+    readTime: "8 min read",
+    author: "Fatima Zahra",
+    slug: "/blog/sahara-packing-list",
+  },
+  {
+    image: "/blog/post3.webp",
+    category: "Food & Culture",
+    title: "Best Street Food in Marrakech's Medina",
+    excerpt: "Djemaa el-Fna after sunset is one of the world's great food experiences. Here's what to eat, where to find it, and what to avoid.",
+    date: "May 10, 2025",
+    readTime: "5 min read",
+    author: "Mohamed Kadi",
+    slug: "/blog/marrakech-street-food",
+  },
+  {
+    image: "/blog/post4.webp",
+    category: "Trekking",
+    title: "Hiking Toubkal: What to Really Expect",
+    excerpt: "North Africa's highest peak is achievable for fit non-climbers — but preparation is everything. Our certified guides break it down.",
+    date: "April 22, 2025",
+    readTime: "10 min read",
+    author: "Youssef Benali",
+    slug: "/blog/toubkal-hiking-guide",
+  },
 ];
 
 export default function RecentBlogSection() {
-    return (
-        <section className="py-20 recent-blog-area px-4 sm:px-10 lg:px-20">
-            <div className="max-w-screen-xl mx-auto">
-                {/* Section Title */}
-                <div className="text-center max-w-2xl mx-auto mb-14">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                        Latest <span className="text-amber-500">from Our Blog</span>
-                    </h1>
-                    <p className="text-gray-500">
-                        With stories from around the world, discover tips, destinations, and inspiration for your next travel journey.
-                    </p>
+  const t = useTranslations("recentBlog");
+
+  return (
+    <section className="py-20 md:py-28 bg-white">
+      <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div>
+            <span className="section-label">{t("label")}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-2">
+              {t("title")}
+            </h2>
+            <p className="text-slate-500 max-w-lg">
+              {t("subtitle")}
+            </p>
+          </div>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-700 text-sm shrink-0"
+          >
+            {t("viewAll")}
+            <FaArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={24}
+          slidesPerView={1}
+          pagination={{ el: ".ets-blog-pagination", clickable: true }}
+          autoplay={{ delay: 4500, pauseOnMouseEnter: true }}
+          loop
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {blogPosts.map((post, idx) => (
+            <SwiperSlide key={idx}>
+              <article className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-slate-100 flex flex-col h-full">
+                <div className="relative h-52 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover hover:scale-105 transition duration-500"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Carousel */}
-                <Swiper
-                    modules={[Pagination, Autoplay]}
-                    spaceBetween={30}
-                    slidesPerView={1}
-                    pagination={{
-                        el: ".custom-swiper-pagination",
-                        clickable: true,
-                    }}
-                    autoplay={{ delay: 4000 }}
-                    loop
-                    breakpoints={{
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
-                    }}
-                >
-                    {blogPosts.map((post, idx) => (
-                        <SwiperSlide key={idx}>
-                            <div className="h-full flex flex-col bg-white shadow-md rounded overflow-hidden">
-                                <div className="relative w-full h-56">
-                                    <Image
-                                        src={post.image}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <div className="details p-5 flex flex-col flex-1">
-                                    <div className="tags mb-3 flex gap-2 text-sm">
-                                        {post.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="bg-gray-100 text-gray-800 px-2 py-1 rounded-sm text-xs"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <Link href="#">
-                                        <h4 className="text-lg font-semibold hover:text-amber-500 transition">
-                                            {post.title}
-                                        </h4>
-                                    </Link>
-                                    <p className="text-gray-600 text-sm mt-2">{post.excerpt}</p>
-                                    <h6 className="text-xs text-gray-400 mt-auto">{post.date}</h6>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                    <span className="flex items-center gap-1">
+                      <FaCalendarAlt className="w-3 h-3" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FaClock className="w-3 h-3" />
+                      {post.readTime}
+                    </span>
+                  </div>
 
-                {/* Custom styled pagination dots */}
-                <div className="custom-swiper-pagination mt-12 flex justify-center gap-2" />
-            </div>
+                  <Link href={post.slug}>
+                    <h3 className="font-bold text-slate-800 text-base leading-snug hover:text-amber-600 transition line-clamp-2 mb-2">
+                      {post.title}
+                    </h3>
+                  </Link>
 
-            {/* Pagination Dot Styles */}
-            <style jsx global>{`
-        .custom-swiper-pagination .swiper-pagination-bullet {
-          width: 10px;
-          height: 10px;
-          background-color: #fcd34d; /* Tailwind amber-300 */
-          opacity: 0.5;
-          border-radius: 9999px;
-          transition: all 0.3s ease;
-        }
+                  <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 flex-1">{post.excerpt}</p>
 
-        .custom-swiper-pagination .swiper-pagination-bullet-active {
-          background-color: #f59e0b; /* Tailwind amber-500 */
-          opacity: 1;
-          transform: scale(1.2);
-        }
-      `}</style>
-        </section>
-    );
+                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
+                    <span className="flex items-center gap-1.5 text-xs text-slate-400">
+                      <FaUser className="w-3 h-3 text-amber-400" />
+                      {post.author}
+                    </span>
+                    <Link
+                      href={post.slug}
+                      className="flex items-center gap-1 text-xs font-semibold text-amber-600 hover:text-amber-700 transition"
+                    >
+                      {t("readMore")}
+                      <FaArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div className="ets-blog-pagination ets-pagination mt-10 flex justify-center gap-2" />
+      </div>
+    </section>
+  );
 }

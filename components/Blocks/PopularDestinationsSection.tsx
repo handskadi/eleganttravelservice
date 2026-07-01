@@ -1,68 +1,101 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
+import { destinations } from "@/data/tours";
+import { useTranslations } from "next-intl";
 
-const destinations = [
-    {
-        title: "Sahara Adventure",
-        location: "Merzouga, Morocco",
-        price: 180,
-        image: "/destinations/sahara.webp",
-    },
-    {
-        title: "Blue Streets",
-        location: "Chefchaouen, Morocco",
-        price: 140,
-        image: "/destinations/chefchaouen.webp",
-    },
-    {
-        title: "Atlas Mountains",
-        location: "Imlil, Morocco",
-        price: 220,
-        image: "/destinations/atlas.webp",
-    },
-];
+const nameToSlug = (name: string) => name.toLowerCase().replace(/\s+/g, "-");
 
 export default function PopularDestinationsSection() {
-    return (
-        <section className="py-20 bg-white">
-            <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-12">
-                <div className="text-center max-w-2xl mx-auto mb-14">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Destinations</h2>
-                    <p className="text-gray-500">
-                        Discover Morocco’s top travel experiences—from desert safaris and blue towns to scenic mountain escapes.
-                    </p>
-                </div>
+  const t = useTranslations("destinations");
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {destinations.map((dest, idx) => (
-                        <div key={idx} className="relative rounded overflow-hidden shadow group">
-                            <div className="relative w-full h-72">
-                                <Image
-                                    src={dest.image}
-                                    alt={dest.title}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition duration-500"
-                                />
-                                <div className="absolute inset-0 bg-[rgba(0,0,0,0)] group-hover:bg-[rgba(0,0,0,0.6)] transition" />
-                            </div>
-                            <div className="absolute top-4 right-4">
-                                <Link
-                                    href="#"
-                                    className="bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded shadow hover:bg-yellow-600 transition"
-                                >
-                                    ${dest.price}
-                                </Link>
-                            </div>
-                            <div className="bg-white p-5 relative z-10">
-                                <h4 className="text-lg font-semibold text-gray-800 mb-1">{dest.title}</h4>
-                                <p className="text-gray-500 text-sm">{dest.location}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+  return (
+    <section id="destinations" className="py-20 md:py-28 bg-white">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="section-label">{t("sectionLabel")}</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            {t("heading")}
+          </h2>
+          <p className="text-slate-500 text-lg leading-relaxed">
+            {t("subheading")}
+          </p>
+        </div>
+
+        {/* Featured + Grid layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {/* Featured destination (large) */}
+          <Link
+            href={`/destinations/${nameToSlug(destinations[0].name)}`}
+            className="lg:col-span-2 lg:row-span-2 relative rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-shadow duration-300"
+          >
+            <div className="relative w-full h-72 lg:h-full min-h-[360px]">
+              <Image
+                src={destinations[0].image}
+                alt={destinations[0].name}
+                fill
+                className="object-cover group-hover:scale-105 transition duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
             </div>
-        </section>
-    );
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <span className="inline-block bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">
+                {destinations[0].description}
+              </span>
+              <h3 className="text-white text-2xl font-bold mb-1">{destinations[0].name}</h3>
+              <p className="text-white/70 text-sm mb-3">{destinations[0].tagline}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-amber-300 text-sm font-medium">{destinations[0].count} {t("toursAvailable")}</span>
+                <span className="inline-flex items-center gap-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-xs font-semibold px-4 py-2 rounded-full border border-white/30 transition">
+                  <FaMapMarkerAlt className="w-3 h-3" />
+                  {t("explore")}
+                  <FaArrowRight className="w-2.5 h-2.5" />
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Smaller destinations */}
+          {destinations.slice(1, 5).map((dest, idx) => (
+            <Link
+              key={idx}
+              href={`/destinations/${nameToSlug(dest.name)}`}
+              className="relative rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="relative w-full h-44">
+                <Image
+                  src={dest.image}
+                  alt={dest.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="flex items-end justify-between">
+                  <div>
+                    <h4 className="text-white font-bold text-base">{dest.name}</h4>
+                    <p className="text-white/60 text-xs">{dest.tagline}</p>
+                  </div>
+                  <span className="text-amber-300 text-xs font-medium whitespace-nowrap ml-2">{dest.count} {t("tours")}</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            href="/destinations"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-full transition shadow-lg"
+          >
+            {t("viewAllDestinations")}
+            <FaArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }

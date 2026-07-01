@@ -1,88 +1,95 @@
-
 import Image from "next/image";
+import { FaUsers, FaGlobeAfrica, FaAward, FaArrowRight } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
-export default function AboutSection() {
-    return (
-        <section className="relative py-20 bg-white">
-            <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-12">
-                <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-8 relative">
-                    {/* Left Image with floating badges */}
-                    <div className="md:col-span-5 relative">
-                        <div className="relative w-[90%] mx-auto">
-                            <Image
-                                src="/morocco-culture.webp"
-                                alt="About Elegant Travel"
-                                width={500}
-                                height={500}
-                                className="rounded-3xl shadow-lg object-cover"
-                            />
+const highlights = [
+  { icon: FaUsers, value: "15,000+", labelKey: "travelers" },
+  { icon: FaGlobeAfrica, value: "50+", labelKey: "packages" },
+  { icon: FaAward, value: "10+", labelKey: "awards" },
+];
 
-                            {/* Visitor badge */}
-                            <div className="absolute bottom-16 md:-left-10 -left-5 p-4 rounded-lg shadow-lg bg-white w-56 flex items-center">
-                                <div className="flex items-center justify-center h-[65px] min-w-[65px] bg-yellow-100 text-yellow-600 rounded-xl mr-3">
-                                    {/* User icon */}
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 010 7.75"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 text-sm">Visitors</span>
-                                    <p className="text-xl font-bold">4589+</p>
-                                </div>
-                            </div>
+export default async function AboutSection() {
+  const t = await getTranslations("about");
 
-                            {/* Packages badge */}
-                            <div className="absolute top-16 md:-right-10 -right-5 p-4 rounded-lg shadow-lg bg-white w-60 flex items-center">
-                                <div className="flex items-center justify-center h-[65px] min-w-[65px] bg-yellow-100 text-yellow-600 rounded-xl mr-3">
-                                    {/* Globe icon */}
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 text-sm">Travel Packages</span>
-                                    <p className="text-xl font-bold">50+</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  return (
+    <section id="about" className="py-20 md:py-28 bg-white relative overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-                    {/* Right Content */}
-                    <div className="md:col-span-7">
-                        <div className="lg:ml-12">
-                            <h3 className="mb-6 text-2xl md:text-3xl font-extrabold leading-tight text-gray-800">
-                                Discover the Magic of Morocco <br /> with Elegant Travel Services
-                            </h3>
-                            <p className="text-gray-500 max-w-2xl mb-6">
-                                At Elegant Travel Services, we transform every trip into a unique adventure. From the golden dunes of Merzouga to the blue alleys of Chefchaouen, we craft authentic experiences for travelers seeking inspiration, culture, and unforgettable memories.
-                            </p>
+          {/* Left: Image with floating badges */}
+          <div className="relative">
+            <div className="relative w-full max-w-md mx-auto">
+              <Image
+                src="/morocco-culture.webp"
+                alt="About Elegant Travel Service"
+                width={520}
+                height={600}
+                className="rounded-3xl shadow-2xl object-cover w-full"
+              />
 
-                            <a
-                                href="#"
-                                className="inline-block px-6 py-3 text-base bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-md transition"
-                            >
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Decorative Map (background) */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -z-10 opacity-10">
-                        <Image
-                            src="/background/map-plane-big.png"
-                            alt="Decorative map"
-                            width={600}
-                            height={600}
-                            className="w-96 md:w-[600px]"
-                        />
-                    </div>
+              {/* Floating badge: Travelers */}
+              <div className="absolute -bottom-5 -left-5 md:-left-10 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-slate-100">
+                <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center">
+                  <FaUsers className="w-5 h-5 text-amber-500" />
                 </div>
+                <div>
+                  <p className="text-xs text-slate-400 font-medium">{t("travelers")}</p>
+                  <p className="text-xl font-extrabold text-slate-800">15,000+</p>
+                </div>
+              </div>
+
+              {/* Floating badge: Packages */}
+              <div className="absolute -top-5 -right-5 md:-right-10 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-slate-100">
+                <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center">
+                  <FaGlobeAfrica className="w-5 h-5 text-emerald-500" />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 font-medium">{t("packages")}</p>
+                  <p className="text-xl font-extrabold text-slate-800">50+</p>
+                </div>
+              </div>
             </div>
-        </section>
-    );
+          </div>
+
+          {/* Right: Content */}
+          <div>
+            <span className="section-label">{t("sectionLabel")}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-5">
+              {t("heading")}
+            </h2>
+            <p className="text-slate-500 text-base leading-relaxed mb-5">
+              {t("body1")}
+            </p>
+            <p className="text-slate-500 text-base leading-relaxed mb-8">
+              {t("body2")}
+            </p>
+
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              {highlights.map(({ icon: Icon, value, labelKey }, i) => (
+                <div key={i} className="text-center p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mx-auto mb-2">
+                    <Icon className="w-5 h-5 text-amber-500" />
+                  </div>
+                  <p className="font-extrabold text-slate-800 text-lg">{value}</p>
+                  <p className="text-xs text-slate-400 font-medium mt-0.5">{t(labelKey)}</p>
+                </div>
+              ))}
+            </div>
+
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-full transition shadow-lg shadow-amber-500/25 text-sm"
+            >
+              {t("cta")}
+              <FaArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Decorative background element */}
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-amber-50 rounded-full opacity-60 blur-3xl pointer-events-none" />
+    </section>
+  );
 }

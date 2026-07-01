@@ -1,235 +1,268 @@
 "use client";
 
 import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-import AddToCartModal from "../Modals/AddToCartModal";
-import "swiper/css";
-import "swiper/css/pagination";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
-    FaCheckCircle,
-    FaClock,
-    FaMountain,
-    FaStar,
-    FaHeart,
-    FaCartPlus,
-    FaRegHeart,
+  FaStar, FaClock, FaMountain, FaHeart, FaCartPlus,
+  FaMapMarkerAlt, FaUsers, FaCheckCircle,
 } from "react-icons/fa";
+import { HiArrowRight } from "react-icons/hi";
+import AddToCartModal from "../Modals/AddToCartModal";
+import { tours, categories } from "@/data/tours";
+import type { Tour, Category } from "@/data/tours";
+import { useApp } from "@/contexts/AppContext";
+import { useTranslations } from "next-intl";
 
-// ✅ Define the Tour type
-type Tour = {
-    title: string;
-    image: string;
-    location: string;
-    price: number;
-    rating: number;
-    reviews: number;
-    duration: string;
-    difficulty: string;
-    highlights: string[];
-    badge: string;
-    isWishlisted: boolean;
+const BADGE_STYLES: Record<string, string> = {
+  amber: "bg-amber-100 text-amber-800",
+  emerald: "bg-emerald-100 text-emerald-800",
+  blue: "bg-blue-100 text-blue-800",
+  orange: "bg-orange-100 text-orange-800",
+  purple: "bg-purple-100 text-purple-800",
+  teal: "bg-teal-100 text-teal-800",
+  yellow: "bg-yellow-100 text-yellow-800",
+  rose: "bg-rose-100 text-rose-800",
+  red: "bg-red-100 text-red-800",
+  indigo: "bg-indigo-100 text-indigo-800",
+  green: "bg-green-100 text-green-800",
+  slate: "bg-slate-100 text-slate-800",
+  cyan: "bg-cyan-100 text-cyan-800",
 };
 
-const tours: Tour[] = [
-    {
-        title: "Sahara Adventure",
-        image: "/destinations/sahara.webp",
-        location: "Merzouga, Morocco",
-        price: 299,
-        rating: 4.9,
-        reviews: 128,
-        duration: "3 Days",
-        difficulty: "Moderate",
-        highlights: ["Camel Trek", "Sandboarding", "Sunset View"],
-        badge: "Featured",
-        isWishlisted: true,
-    },
-    {
-        title: "Hot Air Balloon",
-        image: "/destinations/hot-air-baloon-marrakech.webp",
-        location: "Marrakech, Morocco",
-        price: 270,
-        rating: 4.8,
-        reviews: 105,
-        duration: "Half Day",
-        difficulty: "Easy",
-        highlights: ["Scenic Roads", "Local Villages", "Mountain Pass"],
-        badge: "Top Seller",
-        isWishlisted: true,
-    },
-    {
-        title: "Chefchaouen Charm",
-        image: "/destinations/chaouen.webp",
-        location: "Chefchaouen, Morocco",
-        price: 180,
-        rating: 5.0,
-        reviews: 142,
-        duration: "1 Day",
-        difficulty: "Difficult",
-        highlights: ["Blue Streets", "Local Culture", "Photography Spots"],
-        badge: "New",
-        isWishlisted: false,
-    },
-    {
-        title: "Atlas Road Trip",
-        image: "/destinations/atlas.webp",
-        location: "Tizi-n-Tichka, Morocco",
-        price: 270,
-        rating: 4.8,
-        reviews: 105,
-        duration: "2 Days",
-        difficulty: "Easy",
-        highlights: ["Scenic Roads", "Local Villages", "Mountain Pass"],
-        badge: "Top Seller",
-        isWishlisted: false,
-    },
-];
+const DIFF_STYLES: Record<string, string> = {
+  Easy: "text-emerald-600 bg-emerald-50 border-emerald-100",
+  Moderate: "text-amber-600 bg-amber-50 border-amber-100",
+  Difficult: "text-red-600 bg-red-50 border-red-100",
+};
 
-export default function FeaturedToursSection() {
-    const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+function TourCard({ tour }: { tour: Tour }) {
+  const { toggleWishlist, isWishlisted, isInCart } = useApp();
+  const t = useTranslations("tours");
+  const catLabels: Record<string, string> = {
+    Desert:     t("catDesert"),
+    Mountains:  t("catMountains"),
+    Cities:     t("catCities"),
+    Coastal:    t("catCoastal"),
+    Activities: t("catActivities"),
+    Luxury:     t("catLuxury"),
+  };
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
+  const wishlisted = isWishlisted(tour.id);
+  const inCart = isInCart(tour.id);
 
-    return (
-        <section className="bg-[#f8f9ff] py-20">
-            <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="text-center max-w-2xl mx-auto mb-14">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3">🌟 Featured Tours</h2>
-                    <p className="text-gray-500">Hand-picked experiences loved by our travelers</p>
-                </div>
+  const discount = tour.originalPrice
+    ? Math.round(((tour.originalPrice - tour.price) / tour.originalPrice) * 100)
+    : 0;
 
-                <Swiper
-                    modules={[Pagination, Autoplay]}
-                    spaceBetween={30}
-                    slidesPerView={1}
-                    pagination={{
-                        clickable: true,
-                        el: ".custom-featured-pagination",
-                        bulletClass: "swiper-pagination-bullet",
-                        bulletActiveClass: "swiper-pagination-bullet-active",
-                    }}
-                    autoplay={{ delay: 5000 }}
-                    loop
-                    breakpoints={{
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
-                    }}
-                >
-                    {tours.map((tour, idx) => (
-                        <SwiperSlide key={idx}>
-                            <div className="h-full bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 flex flex-col">
-                                <div className="relative w-full h-60">
-                                    <Image
-                                        src={tour.image}
-                                        alt={tour.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    {/* Icons */}
-                                    <div className="absolute top-2 left-2 flex gap-2">
-                                        <button
-                                            aria-label="Wishlist"
-                                            className="relative p-2 bg-white/80 hover:bg-white rounded-full shadow-sm transition"
-                                        >
-                                            {tour.isWishlisted ? (
-                                                <FaHeart className="text-red-500 text-sm" />
-                                            ) : (
-                                                <>
-                                                    <FaRegHeart className="text-red-500 text-sm" />
-                                                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full shadow">
-                                                        +
-                                                    </span>
-                                                </>
-                                            )}
-                                        </button>
+  return (
+    <>
+      <div
+        className="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col h-full cursor-pointer"
+        onClick={() => router.push(`/tours/${tour.id}`)}
+        role="article"
+      >
+        {/* Image */}
+        <div className="relative h-52 overflow-hidden">
+          <Image src={tour.image} alt={tour.title} fill className="object-cover group-hover:scale-105 transition duration-500" />
 
-                                        <button
-                                            aria-label="Add to cart"
-                                            className="p-2 bg-white/80 hover:bg-white rounded-full shadow-sm transition"
-                                            onClick={() => setSelectedTour(tour)}
-                                        >
-                                            <FaCartPlus className="text-emerald-500 text-sm" />
-                                        </button>
-                                    </div>
+          {/* Overlay actions */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-                                    <span className="absolute top-2 right-2 bg-teal-500 text-white text-xs px-2 py-1 rounded-md shadow-sm text-[11px] font-semibold">
-                                        {tour.badge}
-                                    </span>
-                                </div>
+          <div className="absolute top-3 left-3 flex gap-2">
+            <button
+              onClick={(e) => { e.stopPropagation(); toggleWishlist(tour); }}
+              className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition ${
+                wishlisted ? "bg-red-500 text-white" : "bg-white/90 text-slate-400 hover:text-red-500"
+              }`}
+              aria-label="Toggle wishlist"
+            >
+              <FaHeart className="w-3.5 h-3.5" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); setShowModal(true); }}
+              className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition ${
+                inCart ? "bg-emerald-500 text-white" : "bg-white/90 text-slate-400 hover:text-emerald-500"
+              }`}
+              aria-label="Add to cart"
+            >
+              <FaCartPlus className="w-3.5 h-3.5" />
+            </button>
+          </div>
 
-                                <div className="p-5 flex flex-col flex-1">
-                                    <h3 className="text-lg font-bold text-gray-800 mb-1">{tour.title}</h3>
-                                    <p className="text-sm text-gray-500 mb-2">{tour.location}</p>
-                                    <div className="flex items-center text-sm text-gray-600 mb-3 gap-2">
-                                        <FaStar className="text-yellow-400" />
-                                        <span>{tour.rating} ({tour.reviews} reviews)</span>
-                                    </div>
-                                    <ul className="text-sm text-gray-700 space-y-2 mb-4">
-                                        {tour.highlights.map((item, i) => (
-                                            <li key={i} className="flex items-center gap-2">
-                                                <FaCheckCircle className="text-gray-300" />
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
-                                        <span className="flex items-center gap-2">
-                                            <FaClock className="text-indigo-500" />
-                                            {tour.duration}
-                                        </span>
-                                        <span className={`flex items-center gap-2 font-medium ${getDifficultyColor(tour.difficulty)}`}>
-                                            <FaMountain />
-                                            {tour.difficulty}
-                                        </span>
-                                    </div>
-                                    <div className="mt-auto flex justify-between items-center">
-                                        <span className="text-xl font-bold text-gray-800">${tour.price}</span>
-                                        <button className="bg-yellow-500 text-white text-sm px-4 py-2 rounded hover:bg-yellow-600 transition shadow-sm flex items-center gap-2">
-                                            <FaCartPlus className="text-xs" />
-                                            Book Now
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
-                <AddToCartModal
-                    isOpen={!!selectedTour}
-                    tour={selectedTour}
-                    onClose={() => setSelectedTour(null)}
-                />
-
-                <div className="custom-featured-pagination mt-10 flex justify-center gap-3"></div>
+          {tour.badge && (
+            <div className={`absolute top-3 right-3 text-[10px] font-bold px-2.5 py-1 rounded-full shadow ${BADGE_STYLES[tour.badgeColor || "slate"]}`}>
+              {tour.badge}
             </div>
+          )}
 
-            <style jsx global>{`
-                .custom-featured-pagination .swiper-pagination-bullet {
-                    width: 10px;
-                    height: 10px;
-                    background: #e2e2e2;
-                    opacity: 1;
-                    border-radius: 9999px;
-                    transition: background 0.3s ease;
-                }
-                .custom-featured-pagination .swiper-pagination-bullet-active {
-                    background: #fbbf24;
-                }
-            `}</style>
-        </section>
-    );
+          {discount > 0 && (
+            <div className="absolute bottom-3 left-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
+              -{discount}% OFF
+            </div>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col flex-1 p-4">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest bg-amber-50 px-2 py-0.5 rounded-full">
+              {catLabels[tour.category] ?? tour.category}
+            </span>
+            <div className="flex items-center gap-1 text-xs text-slate-500">
+              <FaUsers className="w-3 h-3 text-slate-400" />
+              {t("max")} {tour.maxGroupSize}
+            </div>
+          </div>
+
+          <h3 className="font-bold text-slate-800 text-base mt-1.5 leading-tight line-clamp-2">{tour.title}</h3>
+
+          <p className="flex items-center gap-1 text-xs text-slate-500 mt-1.5">
+            <FaMapMarkerAlt className="w-3 h-3 text-amber-500 shrink-0" />
+            {tour.location}
+          </p>
+
+          {/* Rating */}
+          <div className="flex items-center gap-1.5 mt-2">
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className={`w-3 h-3 ${i < Math.floor(tour.rating) ? "text-amber-400" : "text-slate-200"}`} />
+              ))}
+            </div>
+            <span className="text-xs font-semibold text-slate-700">{tour.rating}</span>
+            <span className="text-xs text-slate-400">({tour.reviews} {t("reviews")})</span>
+          </div>
+
+          {/* Highlights */}
+          <ul className="mt-3 space-y-1 flex-1">
+            {tour.highlights.slice(0, 3).map((h, i) => (
+              <li key={i} className="flex items-center gap-1.5 text-xs text-slate-600">
+                <FaCheckCircle className="w-2.5 h-2.5 text-amber-400 shrink-0" />
+                {h}
+              </li>
+            ))}
+          </ul>
+
+          {/* Meta */}
+          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-100">
+            <span className="flex items-center gap-1 text-xs text-slate-500">
+              <FaClock className="w-3 h-3 text-indigo-400" />
+              {tour.duration}
+            </span>
+            <span className={`flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full border ${DIFF_STYLES[tour.difficulty]}`}>
+              <FaMountain className="w-2.5 h-2.5" />
+              {tour.difficulty}
+            </span>
+          </div>
+
+          {/* Price + CTA */}
+          <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100">
+            <div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-xl font-extrabold text-slate-900">${tour.price}</span>
+                <span className="text-xs text-slate-400">/ {t("perPerson")}</span>
+              </div>
+              {tour.originalPrice && (
+                <span className="text-xs text-slate-400 line-through">${tour.originalPrice}</span>
+              )}
+            </div>
+            <button
+              onClick={(e) => { e.stopPropagation(); setShowModal(true); }}
+              className="flex items-center gap-1.5 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-xl transition shadow-lg shadow-amber-500/20"
+            >
+              {t("bookNow")}
+              <HiArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <AddToCartModal
+        isOpen={showModal}
+        tour={tour}
+        onClose={() => setShowModal(false)}
+      />
+    </>
+  );
 }
 
-function getDifficultyColor(level: string) {
-    switch (level.toLowerCase()) {
-        case "easy":
-            return "text-green-500";
-        case "moderate":
-            return "text-orange-500";
-        case "difficult":
-            return "text-red-500";
-        default:
-            return "text-gray-500";
-    }
+export default function FeaturedTours() {
+  const t = useTranslations("tours");
+  const catLabels: Record<string, string> = {
+    All:        t("catAll"),
+    Desert:     t("catDesert"),
+    Mountains:  t("catMountains"),
+    Cities:     t("catCities"),
+    Coastal:    t("catCoastal"),
+    Activities: t("catActivities"),
+    Luxury:     t("catLuxury"),
+  };
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [showAll, setShowAll] = useState(false);
+
+  const filtered = activeCategory === "All"
+    ? tours
+    : tours.filter(t => t.category === activeCategory);
+
+  const visible = showAll ? filtered : filtered.slice(0, 9);
+
+  return (
+    <section id="tours" className="py-20 md:py-28 bg-slate-50">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="section-label">{t("sectionLabel")}</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            {t("heading")}
+          </h2>
+          <p className="text-slate-500 text-lg">
+            {t("subheading")}
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-2 justify-center mb-10">
+          {categories.map(cat => (
+            <button
+              key={cat}
+              onClick={() => { setActiveCategory(cat); setShowAll(false); }}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
+                activeCategory === cat
+                  ? "bg-amber-500 text-white shadow-lg shadow-amber-500/25"
+                  : "bg-white text-slate-600 border border-slate-200 hover:border-amber-300 hover:text-amber-600"
+              }`}
+            >
+              {catLabels[cat] ?? cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Tours Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {visible.map(tour => (
+            <TourCard key={tour.id} tour={tour} />
+          ))}
+        </div>
+
+        {/* Load More */}
+        {filtered.length > 9 && !showAll && (
+          <div className="text-center mt-10">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-full transition shadow-xl text-sm"
+            >
+              {t("viewAll", { count: filtered.length })}
+              <HiArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
+        {visible.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-slate-400 text-lg">{t("noTours")}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }

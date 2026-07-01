@@ -1,147 +1,228 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import {
-    FaMapMarkerAlt,
-    FaCalendarAlt,
-    FaUserFriends,
-    FaPlaneDeparture,
-    FaPlaneArrival,
-    FaHotel,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaUserFriends,
+  FaCompass,
+  FaRunning,
+  FaHotel,
+  FaSearch,
+  FaMinus,
+  FaPlus,
 } from "react-icons/fa";
 
-const tabs = ["Holidays", "Hotels", "Flights"] as const;
-type Tab = typeof tabs[number];
+type TabKey = "tours" | "activities" | "accommodation";
 
 export default function SearchForm() {
-    const [activeTab, setActiveTab] = useState<Tab>("Holidays");
-    const [adults, setAdults] = useState(1);
-    const [children, setChildren] = useState(0);
+  const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("searchForm");
+  const isRTL = locale === "ar";
 
-    const renderFields = () => {
-        switch (activeTab) {
-            case "Holidays":
-                return (
-                    <>
-                        <InputField icon={<FaMapMarkerAlt />} placeholder="Destination (e.g. Marrakech)" />
-                        <InputField icon={<FaCalendarAlt />} type="date" placeholder="Start Date" />
-                        <InputField icon={<FaCalendarAlt />} type="date" placeholder="Return Date" />
-                        <CounterInput label="Adults" value={adults} onChange={(val) => setAdults(Math.max(1, val))} />
-                        <CounterInput label="Children" value={children} onChange={(val) => setChildren(Math.max(0, val))} />
-                        <InputField icon={<FaUserFriends />} placeholder="Travel Type (e.g. Adventure, Romantic)" />
-                    </>
-                );
+  const [activeTab, setActiveTab] = useState<TabKey>("tours");
+  const [destination, setDestination] = useState("");
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
 
-            case "Hotels":
-                return (
-                    <>
-                        <InputField icon={<FaHotel />} placeholder="City or Region" />
-                        <InputField icon={<FaCalendarAlt />} type="date" placeholder="Check-in" />
-                        <InputField icon={<FaCalendarAlt />} type="date" placeholder="Check-out" />
-                        <CounterInput label="Adults" value={adults} onChange={(val) => setAdults(Math.max(1, val))} />
-                        <CounterInput label="Children" value={children} onChange={(val) => setChildren(Math.max(0, val))} />
-                        <InputField icon={<FaUserFriends />} placeholder="Room Type (e.g. Deluxe, Suite)" />
-                    </>
-                );
+  const TABS = [
+    { key: "tours" as const, label: t("tours"), icon: FaCompass },
+    { key: "activities" as const, label: t("activities"), icon: FaRunning },
+    { key: "accommodation" as const, label: t("accommodation"), icon: FaHotel },
+  ];
 
-            case "Flights":
-                return (
-                    <>
-                        <InputField icon={<FaPlaneDeparture />} placeholder="From (City / Airport)" />
-                        <InputField icon={<FaPlaneArrival />} placeholder="To (City / Airport)" />
-                        <InputField icon={<FaCalendarAlt />} type="date" placeholder="Departure Date" />
-                        <InputField icon={<FaCalendarAlt />} type="date" placeholder="Return Date" />
-                        <CounterInput label="Adults" value={adults} onChange={(val) => setAdults(Math.max(1, val))} />
-                        <CounterInput label="Children" value={children} onChange={(val) => setChildren(Math.max(0, val))} />
-                    </>
-                );
-        }
-    };
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (activeTab === "tours") router.push("/tours");
+    else if (activeTab === "activities") router.push("/activities");
+    else router.push("/destinations");
+  };
 
-    return (
-        <div className="bg-white/20 backdrop-blur-lg shadow-xl rounded-lg border border-white/30 p-6 w-full max-w-md mx-auto">
-            {/* Tab Buttons */}
-            <div className="flex mb-6 border-b border-white/30">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab}
-                        className={`flex-1 text-sm font-semibold uppercase tracking-wide py-2 text-center transition ${activeTab === tab
-                            ? "text-yellow-500 border-b-2 border-yellow-500"
-                            : "text-white/70 hover:text-yellow-500"
-                            }`}
-                        onClick={() => setActiveTab(tab)}
-                    >
-                        {tab}
-                    </button>
-                ))}
-            </div>
+  const tabConfig: Record<TabKey, { destinationLabel: string; dateLabel: string; endLabel: string }> = {
+    tours: { destinationLabel: t("whereTo"), dateLabel: t("startDate"), endLabel: t("endDate") },
+    activities: { destinationLabel: t("whereTo"), dateLabel: t("startDate"), endLabel: t("endDate") },
+    accommodation: { destinationLabel: t("whereTo"), dateLabel: t("checkIn"), endLabel: t("checkOut") },
+  };
 
-            <form className="space-y-4">
-                {renderFields()}
+  const cfg = tabConfig[activeTab];
+  const searchBtnLabel =
+    activeTab === "tours"
+      ? t("searchTours")
+      : activeTab === "activities"
+      ? t("searchActivities")
+      : t("searchHotels");
 
-                <button
-                    type="submit"
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded text-sm tracking-wide"
-                >
-                    Search {activeTab}
-                </button>
-            </form>
-        </div>
-    );
-}
+  return (
+    <div className="w-full max-w-lg mx-auto" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Tab switcher */}
+      <div className="flex bg-white/10 backdrop-blur-sm rounded-2xl p-1 mb-4 border border-white/20">
+        {TABS.map(({ key, label, icon: Icon }) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setActiveTab(key)}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold tracking-wide transition-all ${
+              activeTab === key
+                ? "bg-amber-500 text-white shadow-lg shadow-amber-500/30"
+                : "text-white/70 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            <Icon className="w-3.5 h-3.5 shrink-0" />
+            <span className="hidden sm:inline">{label}</span>
+          </button>
+        ))}
+      </div>
 
-// Icon Input Field
-function InputField({
-    icon,
-    placeholder,
-    type = "text",
-}: {
-    icon: React.ReactNode;
-    placeholder: string;
-    type?: string;
-}) {
-    return (
-        <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{icon}</span>
-            <input
-                type={type}
-                placeholder={placeholder}
-                className="w-full pl-10 pr-4 py-2 text-sm text-gray-800 bg-white/60 border border-white/40 placeholder-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
+      {/* Form card */}
+      <form
+        onSubmit={handleSearch}
+        className="bg-white/15 backdrop-blur-xl border border-white/25 rounded-2xl p-5 shadow-2xl"
+      >
+        <div className="space-y-3">
+          {/* Destination */}
+          <GlassInput
+            icon={<FaMapMarkerAlt />}
+            label={cfg.destinationLabel}
+            value={destination}
+            onChange={setDestination}
+            placeholder={t("placeholder")}
+            isRTL={isRTL}
+          />
+
+          {/* Dates row */}
+          <div className="grid grid-cols-2 gap-3">
+            <GlassInput
+              icon={<FaCalendarAlt />}
+              label={cfg.dateLabel}
+              value={checkIn}
+              onChange={setCheckIn}
+              type="date"
+              isRTL={isRTL}
             />
+            <GlassInput
+              icon={<FaCalendarAlt />}
+              label={cfg.endLabel}
+              value={checkOut}
+              onChange={setCheckOut}
+              type="date"
+              isRTL={isRTL}
+            />
+          </div>
+
+          {/* Guests row */}
+          <div className="grid grid-cols-2 gap-3">
+            <CounterField
+              icon={<FaUserFriends />}
+              label={t("adults")}
+              value={adults}
+              min={1}
+              onChange={setAdults}
+            />
+            <CounterField
+              icon={<FaUserFriends />}
+              label={t("children")}
+              value={children}
+              min={0}
+              onChange={setChildren}
+            />
+          </div>
+
+          {/* CTA */}
+          <button
+            type="submit"
+            className="w-full flex items-center justify-center gap-2 py-3.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-white font-bold rounded-xl text-sm tracking-wide transition-all shadow-lg shadow-amber-500/30 mt-1"
+          >
+            <FaSearch className="w-3.5 h-3.5" />
+            {searchBtnLabel}
+          </button>
         </div>
-    );
+      </form>
+    </div>
+  );
 }
 
-// Counter with + / –
-function CounterInput({
-    label,
-    value,
-    onChange,
+function GlassInput({
+  icon,
+  label,
+  placeholder = "",
+  type = "text",
+  value,
+  onChange,
+  isRTL = false,
 }: {
-    label: string;
-    value: number;
-    onChange: (val: number) => void;
+  icon: React.ReactNode;
+  label: string;
+  placeholder?: string;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
+  isRTL?: boolean;
 }) {
-    return (
-        <div>
-            <label className="block text-sm font-medium text-white mb-1">{label}</label>
-            <div className="flex items-center justify-between bg-white/60 border border-white/40 rounded px-3">
-                <button
-                    type="button"
-                    onClick={() => onChange(value - 1)}
-                    className="text-xl font-bold px-3 py-1 text-gray-700 hover:text-yellow-600"
-                >
-                    –
-                </button>
-                <span className="text-sm text-gray-800">{value}</span>
-                <button
-                    type="button"
-                    onClick={() => onChange(value + 1)}
-                    className="text-xl font-bold px-3 py-1 text-gray-700 hover:text-yellow-600"
-                >
-                    +
-                </button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="relative">
+      <label className="block text-[10px] font-bold text-white/60 uppercase tracking-widest mb-1 pl-1">
+        {label}
+      </label>
+      <div className="relative">
+        <span
+          className={`absolute ${isRTL ? "right-3.5" : "left-3.5"} top-1/2 -translate-y-1/2 text-white/50 text-sm`}
+        >
+          {icon}
+        </span>
+        <input
+          type={type}
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          placeholder={placeholder}
+          dir={isRTL ? "rtl" : "ltr"}
+          className={`w-full ${isRTL ? "pr-10 pl-3" : "pl-10 pr-3"} py-2.5 bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl text-sm focus:outline-none focus:border-amber-400/70 focus:bg-white/15 transition`}
+        />
+      </div>
+    </div>
+  );
+}
+
+function CounterField({
+  icon,
+  label,
+  value,
+  min,
+  onChange,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: number;
+  min: number;
+  onChange: (v: number) => void;
+}) {
+  return (
+    <div>
+      <label className="block text-[10px] font-bold text-white/60 uppercase tracking-widest mb-1 pl-1">
+        {label}
+      </label>
+      <div className="flex items-center bg-white/10 border border-white/20 rounded-xl px-2 py-1.5 gap-2">
+        <span className="text-white/50 text-sm shrink-0">{icon}</span>
+        <button
+          type="button"
+          onClick={() => onChange(Math.max(min, value - 1))}
+          className="w-6 h-6 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/15 transition shrink-0"
+        >
+          <FaMinus className="w-2.5 h-2.5" />
+        </button>
+        <span className="flex-1 text-center text-white font-bold text-sm">{value}</span>
+        <button
+          type="button"
+          onClick={() => onChange(value + 1)}
+          className="w-6 h-6 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/15 transition shrink-0"
+        >
+          <FaPlus className="w-2.5 h-2.5" />
+        </button>
+      </div>
+    </div>
+  );
 }

@@ -2,7 +2,12 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --primary: #f59e0b;
+  --primary-dark: #d97706;
+  --accent: #6b4eff;
+  --navy: #0f172a;
+  --navy-light: #1e293b;
 }
 
 @theme inline {
@@ -11,32 +16,163 @@
   --font-montserrat: var(--font-montserrat);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─── Animations ─────────────────────────────────────────── */
 @layer utilities {
   .animate-slide-down {
-    animation: slideDown 0.3s ease forwards;
+    animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease forwards;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-slide-in-right {
+    animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-bounce-subtle {
+    animation: bounceSub 0.6s ease infinite alternate;
+  }
+  .animate-pulse-badge {
+    animation: pulseBadge 2s ease infinite;
   }
 
   @keyframes slideDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(-12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.92); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(24px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes bounceSub {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+  }
+  @keyframes pulseBadge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
   }
 }
+
+/* ─── Tour Card Hover ─────────────────────────────────────── */
+.tour-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tour-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.18);
+}
+
+/* ─── Section Label ───────────────────────────────────────── */
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  padding: 4px 14px;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 999px;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  margin-bottom: 1rem;
+}
+
+/* ─── Swiper Pagination Override ────────────────────────── */
+.ets-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #e2e8f0;
+  opacity: 1;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+.ets-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+  background: #f59e0b;
+  border-radius: 9999px;
+}
+
+/* ─── Panel Overlay ───────────────────────────────────────── */
+.panel-overlay {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* ─── Admin Sidebar ───────────────────────────────────────── */
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.admin-nav-item:hover,
+.admin-nav-item.active {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+.admin-nav-item.active {
+  font-weight: 600;
+}
+
+/* ─── Input Focus Ring ────────────────────────────────────── */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  ring-color: #f59e0b;
+}
+
+/* ─── Star Rating ─────────────────────────────────────────── */
+.stars-filled { color: #f59e0b; }
+.stars-empty { color: #e2e8f0; }
+
+/* ─── Badge Color Variants ────────────────────────────────── */
+.badge-amber  { background: #fef3c7; color: #92400e; }
+.badge-emerald { background: #d1fae5; color: #064e3b; }
+.badge-blue   { background: #dbeafe; color: #1e3a5f; }
+.badge-orange { background: #ffedd5; color: #7c2d12; }
+.badge-purple { background: #ede9fe; color: #4c1d95; }
+.badge-teal   { background: #ccfbf1; color: #134e4a; }
+.badge-yellow { background: #fef9c3; color: #713f12; }
+.badge-rose   { background: #ffe4e6; color: #881337; }
+.badge-red    { background: #fee2e2; color: #7f1d1d; }
+.badge-indigo { background: #e0e7ff; color: #312e81; }
+.badge-green  { background: #dcfce7; color: #14532d; }
+.badge-slate  { background: #f1f5f9; color: #1e293b; }
+.badge-cyan   { background: #cffafe; color: #164e63; }
