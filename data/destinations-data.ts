@@ -35,7 +35,7 @@ export const destinationsData: DestinationData[] = [
   {
     slug: "marrakech",
     name: "Marrakech",
-    heroImage: "/destinations/hot-air-baloon-marrakech.webp",
+    heroImage: "/destinations/marrakech.jpg",
     subtitle: "The Red City",
     country: "Morocco",
     region: "Central Morocco",
@@ -96,7 +96,7 @@ Marrakech is also the gateway to the High Atlas Mountains, which rise dramatical
         title: "Sunrise Hot Air Balloon Flight",
         description:
           "Drift over the terracotta rooftops of the medina and the palm-studded plains of the Haouz as dawn breaks over the Atlas Mountains. Champagne breakfast in the Agafay Desert included.",
-        image: "/destinations/hot-air-baloon-marrakech.webp",
+        image: "/tours/hot-air-balloon-marrakech.jpg",
         duration: "4 hours",
         price: "From £130 per person",
       },
@@ -104,7 +104,7 @@ Marrakech is also the gateway to the High Atlas Mountains, which rise dramatical
         title: "Medina Food Tour",
         description:
           "Navigate the street-food stalls and hidden restaurant courtyards of the medina with a local guide, sampling msemen flatbreads, harira soup, bastilla pigeon pie and freshly squeezed orange juice.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "3 hours",
         price: "From £45 per person",
       },
@@ -112,7 +112,7 @@ Marrakech is also the gateway to the High Atlas Mountains, which rise dramatical
         title: "Luxury Hammam & Spa Day",
         description:
           "Surrender to a traditional hammam ritual in a beautiful riad spa — steam room, black olive soap, kessa exfoliation and a full argan oil massage tailored to your needs.",
-        image: "/moroccan-tiles.webp",
+        image: "/tours/royal-hammam-spa-marrakech.jpg",
         duration: "Half day",
         price: "From £60 per person",
       },
@@ -120,7 +120,7 @@ Marrakech is also the gateway to the High Atlas Mountains, which rise dramatical
         title: "Quad Biking in the Agafay Desert",
         description:
           "Tear across the rocky desert plateau of Agafay, just 45 minutes from the city, on a thrilling quad bike excursion with Atlas Mountain views as your constant backdrop.",
-        image: "/destinations/sahara.webp",
+        image: "/tours/sahara-3day-marrakech.jpg",
         duration: "3 hours",
         price: "From £55 per person",
       },
@@ -128,7 +128,7 @@ Marrakech is also the gateway to the High Atlas Mountains, which rise dramatical
         title: "Private Riad Cooking Class",
         description:
           "Learn the secrets of Moroccan cuisine — from spice blending and pastry making to slow-cooked tagines — in the kitchen of a private riad with a local chef.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "4 hours",
         price: "From £50 per person",
       },
@@ -156,7 +156,7 @@ Marrakech is also the gateway to the High Atlas Mountains, which rise dramatical
   {
     slug: "sahara-desert",
     name: "Sahara Desert",
-    heroImage: "/destinations/sahara.webp",
+    heroImage: "/destinations/sahara-desert.jpg",
     subtitle: "The Golden Dunes",
     country: "Morocco",
     region: "South-Eastern Morocco",
@@ -217,7 +217,7 @@ Beyond the dunes themselves, the Moroccan Sahara rewards those who slow down. Ea
         title: "3-Day Sahara Desert Adventure",
         description:
           "The definitive Morocco desert experience: camel trek into Erg Chebbi, a night in a luxury desert camp with traditional Gnawa music, sandboarding at dawn and a scenic return through the Draa Valley kasbahs.",
-        image: "/destinations/sahara.webp",
+        image: "/tours/sahara-3day-marrakech.jpg",
         duration: "3 Days",
         price: "From £299 per person",
       },
@@ -225,7 +225,7 @@ Beyond the dunes themselves, the Moroccan Sahara rewards those who slow down. Ea
         title: "Sunset Camel Trek",
         description:
           "A shorter introduction to the Sahara — a two-hour camel ride into the dunes for sunset, followed by mint tea and traditional music at a desert camp before returning under the stars.",
-        image: "/destinations/sahara.webp",
+        image: "/tours/sahara-3day-marrakech.jpg",
         duration: "3 hours",
         price: "From £45 per person",
       },
@@ -233,7 +233,7 @@ Beyond the dunes themselves, the Moroccan Sahara rewards those who slow down. Ea
         title: "Aït Benhaddou & Dadès Gorges Day Tour",
         description:
           "A classic southern Morocco circuit taking in the UNESCO-listed kasbah of Aït Benhaddou and the vertiginous switchbacks of the Dadès Gorge — ideal preparation for the desert ahead.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "Full day",
         price: "From £75 per person",
       },
@@ -241,7 +241,7 @@ Beyond the dunes themselves, the Moroccan Sahara rewards those who slow down. Ea
         title: "Luxury Merzouga Desert Camp",
         description:
           "Upgrade your desert experience to a private luxury camp with en-suite facilities, private terrace, personalised service and a private stargazing session with a Amazigh astronomy guide.",
-        image: "/destinations/sahara.webp",
+        image: "/tours/sahara-3day-marrakech.jpg",
         duration: "1 night",
         price: "From £180 per person",
       },
@@ -268,7 +268,7 @@ Beyond the dunes themselves, the Moroccan Sahara rewards those who slow down. Ea
   {
     slug: "chefchaouen",
     name: "Chefchaouen",
-    heroImage: "/destinations/chefchaouen.webp",
+    heroImage: "/destinations/chefchaouen.jpg",
     subtitle: "The Blue Pearl",
     country: "Morocco",
     region: "Northern Morocco / Rif Mountains",
@@ -329,7 +329,7 @@ Despite the Instagram fame that has brought visitors flooding to Chefchaouen ove
         title: "Guided Blue City Walking Tour",
         description:
           "Explore the photogenic lanes and hidden squares of the medina with a knowledgeable local guide who explains the history behind the famous blue paint and introduces you to traditional craftspeople at work.",
-        image: "/destinations/chefchaouen.webp",
+        image: "/tours/chefchaouen-blue-city-2day.jpg",
         duration: "3 hours",
         price: "From £30 per person",
       },
@@ -337,7 +337,7 @@ Despite the Instagram fame that has brought visitors flooding to Chefchaouen ove
         title: "Rif Mountain Macaque Trek",
         description:
           "Hike through the cedar forests above Chefchaouen in search of Barbary macaques, with a naturalist guide who explains the delicate ecosystem of the Rif Mountains.",
-        image: "/destinations/atlas.webp",
+        image: "/tours/atlas-mountains-trek-3day.jpg",
         duration: "Half day",
         price: "From £40 per person",
       },
@@ -345,7 +345,7 @@ Despite the Instagram fame that has brought visitors flooding to Chefchaouen ove
         title: "Chefchaouen Photography Workshop",
         description:
           "Spend a morning or evening with a professional photographer learning to capture the city's unique light, colour contrasts and candid street scenes in the golden hours.",
-        image: "/destinations/chefchaouen.webp",
+        image: "/tours/chefchaouen-blue-city-2day.jpg",
         duration: "3 hours",
         price: "From £55 per person",
       },
@@ -353,7 +353,7 @@ Despite the Instagram fame that has brought visitors flooding to Chefchaouen ove
         title: "Northern Morocco Circuit: Tangier to Chefchaouen",
         description:
           "A two-day tour combining the cosmopolitan port of Tangier — with its Kasbah Museum and Café Hafa — and the ethereal blue medina of Chefchaouen, with overnight accommodation included.",
-        image: "/destinations/chefchaouen.webp",
+        image: "/tours/chefchaouen-blue-city-2day.jpg",
         duration: "2 Days",
         price: "From £140 per person",
       },
@@ -374,7 +374,7 @@ Despite the Instagram fame that has brought visitors flooding to Chefchaouen ove
   {
     slug: "atlas-mountains",
     name: "Atlas Mountains",
-    heroImage: "/destinations/atlas.webp",
+    heroImage: "/destinations/atlas-mountains.jpg",
     subtitle: "Peaks & Berber Villages",
     country: "Morocco",
     region: "High Atlas / Central Morocco",
@@ -435,7 +435,7 @@ What makes the Atlas genuinely special is not just the scenery but the sense of 
         title: "Toubkal Summit Trek",
         description:
           "A two-day guided ascent of North Africa's highest peak, starting from the mountain hub of Imlil, overnighting at a mountain refuge at 3,207 metres and reaching the summit at dawn for a 360-degree panorama.",
-        image: "/destinations/atlas.webp",
+        image: "/tours/atlas-mountains-trek-3day.jpg",
         duration: "2 Days",
         price: "From £180 per person",
       },
@@ -443,7 +443,7 @@ What makes the Atlas genuinely special is not just the scenery but the sense of 
         title: "Berber Villages Trekking Circuit",
         description:
           "A three-day guided circuit through the remote valleys and Amazigh villages of the High Atlas, staying in village guesthouses, crossing mountain passes and learning about traditional Berber life.",
-        image: "/destinations/atlas.webp",
+        image: "/tours/atlas-mountains-trek-3day.jpg",
         duration: "3 Days",
         price: "From £220 per person",
       },
@@ -451,7 +451,7 @@ What makes the Atlas genuinely special is not just the scenery but the sense of 
         title: "Ourika Valley Day Trip",
         description:
           "A gentle introduction to the Atlas Mountains from Marrakech — a scenic valley drive, a hike to the Seven Waterfalls, lunch on a terrace overlooking the river and a visit to a saffron cooperative.",
-        image: "/destinations/atlas.webp",
+        image: "/tours/atlas-mountains-trek-3day.jpg",
         duration: "Full day",
         price: "From £55 per person",
       },
@@ -459,7 +459,7 @@ What makes the Atlas genuinely special is not just the scenery but the sense of 
         title: "Imlil Village & Waterfall Walk",
         description:
           "A half-day walk from the mountain village of Imlil into the surrounding walnut-tree valleys with a certified Amazigh guide, visiting traditional stone mills and a local family for tea.",
-        image: "/destinations/atlas.webp",
+        image: "/tours/atlas-mountains-trek-3day.jpg",
         duration: "Half day",
         price: "From £35 per person",
       },
@@ -480,7 +480,7 @@ What makes the Atlas genuinely special is not just the scenery but the sense of 
   {
     slug: "fes",
     name: "Fes",
-    heroImage: "/moroccan-handicrafts.webp",
+    heroImage: "/destinations/fes.jpg",
     subtitle: "Living Medieval City",
     country: "Morocco",
     region: "Northern Morocco",
@@ -541,7 +541,7 @@ The Fes el-Jdid quarter, built alongside the original medina in the thirteenth c
         title: "Fes Imperial City Full-Day Tour",
         description:
           "A comprehensive guided tour of Fes el-Bali covering the Chouara tanneries, Bou Inania Madrasa, Al-Qarawiyyin quarter, the dyers' souks and a private artisan workshop visit — the most thorough introduction to Morocco's medieval capital.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "Full day",
         price: "From £70 per person",
       },
@@ -549,7 +549,7 @@ The Fes el-Jdid quarter, built alongside the original medina in the thirteenth c
         title: "Artisan Craft Workshop Experience",
         description:
           "Spend a morning learning the fundamentals of Fassi tilework with a master zellige craftsman, creating your own geometric pattern to take home — a genuinely memorable hands-on introduction to Morocco's greatest craft tradition.",
-        image: "/moroccan-tiles.webp",
+        image: "/tours/royal-hammam-spa-marrakech.jpg",
         duration: "3 hours",
         price: "From £50 per person",
       },
@@ -557,7 +557,7 @@ The Fes el-Jdid quarter, built alongside the original medina in the thirteenth c
         title: "Evening Medina Food Tour",
         description:
           "Explore the street-food culture of Fes after dark — pastilla, harira, fried sardines, honey-drenched chebakia and fresh-pressed juices — with a local guide who knows every stall worth stopping at.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "3 hours",
         price: "From £40 per person",
       },
@@ -565,7 +565,7 @@ The Fes el-Jdid quarter, built alongside the original medina in the thirteenth c
         title: "Fes to Chefchaouen Day Trip",
         description:
           "A full-day excursion from Fes north to the blue-painted medina of Chefchaouen through the cedar forests of the Middle Atlas — one of Morocco's great scenic drives.",
-        image: "/destinations/chefchaouen.webp",
+        image: "/tours/chefchaouen-blue-city-2day.jpg",
         duration: "Full day",
         price: "From £85 per person",
       },
@@ -586,7 +586,7 @@ The Fes el-Jdid quarter, built alongside the original medina in the thirteenth c
   {
     slug: "essaouira",
     name: "Essaouira",
-    heroImage: "/moroccan-tiles.webp",
+    heroImage: "/destinations/essaouira.jpg",
     subtitle: "The Wind City",
     country: "Morocco",
     region: "Atlantic Coast",
@@ -647,7 +647,7 @@ The beaches north and south of the city stretch for kilometres along an extraord
         title: "Essaouira Coastal Discovery Day",
         description:
           "A full-day exploration of the medina, ramparts, port and argan forest with a local guide, including lunch at a port-side seafood grill and a visit to a women-run argan cooperative.",
-        image: "/moroccan-tiles.webp",
+        image: "/tours/royal-hammam-spa-marrakech.jpg",
         duration: "Full day",
         price: "From £60 per person",
       },
@@ -655,7 +655,7 @@ The beaches north and south of the city stretch for kilometres along an extraord
         title: "Windsurfing Introduction Lesson",
         description:
           "Learn the basics of windsurfing on the consistent Atlantic swells south of the medina with a qualified international instructor — all equipment provided, beginners very welcome.",
-        image: "/imgplaceholder.webp",
+        image: "/tours/morocco-highlights-7day.jpg",
         duration: "3 hours",
         price: "From £65 per person",
       },
@@ -663,7 +663,7 @@ The beaches north and south of the city stretch for kilometres along an extraord
         title: "Gnawa Music & Medina Evening",
         description:
           "An evening tour of Essaouira's cultural heart — the craftsmen's quarter, a sunset walk on the ramparts and a private concert of Gnawa music in a medina courtyard.",
-        image: "/moroccan-tiles.webp",
+        image: "/tours/royal-hammam-spa-marrakech.jpg",
         duration: "4 hours",
         price: "From £45 per person",
       },
@@ -671,7 +671,7 @@ The beaches north and south of the city stretch for kilometres along an extraord
         title: "Agadir & Essaouira Coastal Tour",
         description:
           "A two-day tour combining the beach resort of Agadir with the historic charm of Essaouira — a complete portrait of Morocco's Atlantic coast from the palm-lined promenade to the wind-scoured ramparts.",
-        image: "/imgplaceholder.webp",
+        image: "/tours/morocco-highlights-7day.jpg",
         duration: "2 Days",
         price: "From £140 per person",
       },
@@ -692,7 +692,7 @@ The beaches north and south of the city stretch for kilometres along an extraord
   {
     slug: "casablanca",
     name: "Casablanca",
-    heroImage: "/moroccan-handicrafts.webp",
+    heroImage: "/destinations/casablanca.jpg",
     subtitle: "Morocco's Modern Heart",
     country: "Morocco",
     region: "Atlantic Coast / Central-West Morocco",
@@ -753,7 +753,7 @@ Beyond the monuments, Casablanca rewards those who engage with it on local terms
         title: "Casablanca & Rabat Imperial Tour",
         description:
           "A full-day circuit combining Morocco's modern economic capital with the elegantly proportioned capital city of Rabat — the Hassan II Mosque, the Mohammed V Mausoleum, the Chellah necropolis and the Oudaïas Kasbah.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "Full day",
         price: "From £75 per person",
       },
@@ -761,7 +761,7 @@ Beyond the monuments, Casablanca rewards those who engage with it on local terms
         title: "Art Deco Architecture Walking Tour",
         description:
           "A curated two-hour walking tour of Casablanca's extraordinary 1920s and 30s Mauresque and Art Deco buildings with an architectural historian who knows every hidden lobby and rooftop terrace.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "2 hours",
         price: "From £35 per person",
       },
@@ -769,7 +769,7 @@ Beyond the monuments, Casablanca rewards those who engage with it on local terms
         title: "Hassan II Mosque Guided Visit",
         description:
           "An in-depth guided tour of the interior of the Hassan II Mosque, the only mosque in Morocco accessible to non-Muslims — covering its architecture, craftsmanship and spiritual significance.",
-        image: "/moroccan-tiles.webp",
+        image: "/tours/royal-hammam-spa-marrakech.jpg",
         duration: "2 hours",
         price: "From £20 per person",
       },
@@ -777,7 +777,7 @@ Beyond the monuments, Casablanca rewards those who engage with it on local terms
         title: "Casablanca Seafood & Culture Evening",
         description:
           "An evening programme combining a sunset walk on the Ain Diab corniche, aperitifs in a rooftop bar and a seafood dinner at one of the city's acclaimed Atlantic-coast restaurants.",
-        image: "/moroccan-handicrafts.webp",
+        image: "/tours/marrakech-zellige-workshop.jpg",
         duration: "4 hours",
         price: "From £55 per person",
       },
@@ -798,7 +798,7 @@ Beyond the monuments, Casablanca rewards those who engage with it on local terms
   {
     slug: "agadir",
     name: "Agadir",
-    heroImage: "/imgplaceholder.webp",
+    heroImage: "/destinations/agadir.jpg",
     subtitle: "Atlantic Coast Paradise",
     country: "Morocco",
     region: "Souss-Massa / Atlantic South",
@@ -859,7 +859,7 @@ The reconstruction of Agadir also preserved one heritage site of great poignancy
         title: "Agadir Beach & Souss-Massa National Park",
         description:
           "A full-day combination of morning beach time and an afternoon wildlife excursion into the Souss-Massa National Park, with a specialist ornithologist guide and boat trip on the Massa lagoon.",
-        image: "/imgplaceholder.webp",
+        image: "/tours/morocco-highlights-7day.jpg",
         duration: "Full day",
         price: "From £65 per person",
       },
@@ -867,7 +867,7 @@ The reconstruction of Agadir also preserved one heritage site of great poignancy
         title: "Surf Lesson for Beginners",
         description:
           "A two-hour introduction to Atlantic surfing on the gentle beach breaks south of the city with a qualified surf instructor — all equipment provided, no experience necessary.",
-        image: "/imgplaceholder.webp",
+        image: "/tours/morocco-highlights-7day.jpg",
         duration: "2 hours",
         price: "From £40 per person",
       },
@@ -875,7 +875,7 @@ The reconstruction of Agadir also preserved one heritage site of great poignancy
         title: "Anti-Atlas Berber Villages Day Trip",
         description:
           "Drive into the Anti-Atlas Mountains to visit traditional Amazigh villages in the argan-forested valleys, meet a women's cooperative producing argan oil and return via the scenic Tiznit silversmith town.",
-        image: "/destinations/atlas.webp",
+        image: "/tours/atlas-mountains-trek-3day.jpg",
         duration: "Full day",
         price: "From £70 per person",
       },
@@ -883,7 +883,7 @@ The reconstruction of Agadir also preserved one heritage site of great poignancy
         title: "Deep-Sea Fishing Charter",
         description:
           "Join a morning deep-sea fishing trip from Agadir Marina targeting Atlantic tuna, swordfish and sea bass, with the day's catch prepared as lunch on board by the crew.",
-        image: "/imgplaceholder.webp",
+        image: "/tours/morocco-highlights-7day.jpg",
         duration: "Half day",
         price: "From £80 per person",
       },

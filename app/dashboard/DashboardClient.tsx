@@ -111,7 +111,7 @@ export default function DashboardPage() {
                   </Link>
                 )}
                 <button
-                  onClick={() => { logout(); router.push("/login"); }}
+                  onClick={async () => { await logout(); router.push("/login"); }}
                   className="admin-nav-item w-full mt-2 text-red-400 hover:text-red-600 hover:bg-red-50"
                 >
                   <FaSignOutAlt className="w-4 h-4" />

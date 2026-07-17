@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description:
       "Browse 4 guided tours from Agadir — Anti-Atlas Berber villages, surf camp at Taghazout, coastal drives and mountain treks. Private tours from Morocco's beach capital.",
     type: "website",
-    images: [{ url: "/destinations/atlas.webp", alt: "Morocco Tour from Agadir" }],
+    images: [{ url: "/tours/atlas-mountains-trek-3day.jpg", alt: "Morocco Tour from Agadir" }],
   },
   robots: {
     index: true,

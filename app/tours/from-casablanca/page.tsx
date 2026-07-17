@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Browse 13 guided tours from Casablanca — imperial city loops, Sahara desert adventures, Atlantic coastal drives and luxury circuits. Private tours, certified guides.",
     type: "website",
-    images: [{ url: "/destinations/atlas.webp", alt: "Morocco Tour from Casablanca" }],
+    images: [{ url: "/tours/atlas-mountains-trek-3day.jpg", alt: "Morocco Tour from Casablanca" }],
   },
   robots: {
     index: true,

@@ -173,7 +173,7 @@ function ActivityCard({ tour }: { tour: Tour }) {
         <div className="relative h-52 overflow-hidden bg-slate-100">
           <Link href={`/tours/${tour.id}`} className="absolute inset-0 z-0">
             <Image
-              src={imgError ? "/imgplaceholder.webp" : tour.image}
+              src={imgError ? "/activities/hot-air-balloon-marrakech.jpg" : `/activities/${tour.id}.jpg`}
               alt={tour.title}
               fill
               unoptimized

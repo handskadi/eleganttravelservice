@@ -4,36 +4,32 @@
 -- =============================================================================
 
 -- =============================================================================
--- ENUM TYPES
+-- ENUM TYPES  (idempotent — safe to re-run)
 -- =============================================================================
 
--- User roles within the system
-CREATE TYPE user_role AS ENUM ('user', 'admin', 'agent');
+DO $$ BEGIN
+  CREATE TYPE user_role AS ENUM ('user', 'admin', 'agent');
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
--- Lifecycle states for a booking
-CREATE TYPE booking_status AS ENUM ('confirmed', 'pending', 'cancelled');
+DO $$ BEGIN
+  CREATE TYPE booking_status AS ENUM ('confirmed', 'pending', 'cancelled');
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
--- Categories of messages sent between users and agents/admin
-CREATE TYPE message_type AS ENUM (
-  'booking_confirmation',
-  'offer',
-  'reminder',
-  'support',
-  'general'
-);
+DO $$ BEGIN
+  CREATE TYPE message_type AS ENUM (
+    'booking_confirmation', 'offer', 'reminder', 'support', 'general'
+  );
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
--- Physical difficulty rating for tour listings
-CREATE TYPE difficulty_level AS ENUM ('Easy', 'Moderate', 'Difficult');
+DO $$ BEGIN
+  CREATE TYPE difficulty_level AS ENUM ('Easy', 'Moderate', 'Difficult');
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
--- Top-level category tags for tour listings
-CREATE TYPE tour_category AS ENUM (
-  'Desert',
-  'Mountains',
-  'Cities',
-  'Coastal',
-  'Activities',
-  'Luxury'
-);
+DO $$ BEGIN
+  CREATE TYPE tour_category AS ENUM (
+    'Desert', 'Mountains', 'Cities', 'Coastal', 'Activities', 'Luxury'
+  );
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
 -- =============================================================================
 -- TABLE: profiles
@@ -145,116 +141,95 @@ ALTER TABLE tour_reviews ENABLE ROW LEVEL SECURITY;
 -- profiles policies
 -- ---------------------------------------------------------------------------
 
--- Any authenticated user can read their own profile row
+DROP POLICY IF EXISTS "profiles: users can read own"    ON profiles;
+DROP POLICY IF EXISTS "profiles: admin can read all"    ON profiles;
+DROP POLICY IF EXISTS "profiles: users can update own"  ON profiles;
+DROP POLICY IF EXISTS "profiles: admin can update all"  ON profiles;
+
 CREATE POLICY "profiles: users can read own"
   ON profiles FOR SELECT
   USING (auth.uid() = id);
 
--- Admin users can read every profile
 CREATE POLICY "profiles: admin can read all"
   ON profiles FOR SELECT
   USING (
-    EXISTS (
-      SELECT 1 FROM profiles p
-      WHERE p.id = auth.uid()
-        AND p.role = 'admin'
-    )
+    EXISTS (SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.role = 'admin')
   );
 
--- Users can update their own profile (name, phone, avatar only — role is protected)
 CREATE POLICY "profiles: users can update own"
   ON profiles FOR UPDATE
   USING (auth.uid() = id);
 
--- Admin can update any profile (e.g. to promote a user to agent)
 CREATE POLICY "profiles: admin can update all"
   ON profiles FOR UPDATE
   USING (
-    EXISTS (
-      SELECT 1 FROM profiles p
-      WHERE p.id = auth.uid()
-        AND p.role = 'admin'
-    )
+    EXISTS (SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.role = 'admin')
   );
 
 -- ---------------------------------------------------------------------------
 -- bookings policies
 -- ---------------------------------------------------------------------------
 
--- Users can read only their own bookings
+DROP POLICY IF EXISTS "bookings: users can read own"              ON bookings;
+DROP POLICY IF EXISTS "bookings: admin and agent can read all"    ON bookings;
+DROP POLICY IF EXISTS "bookings: users can insert own"            ON bookings;
+DROP POLICY IF EXISTS "bookings: admin and agent can insert any"  ON bookings;
+DROP POLICY IF EXISTS "bookings: admin can update all"            ON bookings;
+
 CREATE POLICY "bookings: users can read own"
   ON bookings FOR SELECT
   USING (auth.uid() = user_id);
 
--- Admin and agents can read all bookings
 CREATE POLICY "bookings: admin and agent can read all"
   ON bookings FOR SELECT
   USING (
-    EXISTS (
-      SELECT 1 FROM profiles p
-      WHERE p.id = auth.uid()
-        AND p.role IN ('admin', 'agent')
-    )
+    EXISTS (SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.role IN ('admin', 'agent'))
   );
 
--- Authenticated users can insert their own bookings
 CREATE POLICY "bookings: users can insert own"
   ON bookings FOR INSERT
   WITH CHECK (auth.uid() = user_id);
 
--- Admin and agents can insert bookings on behalf of users
 CREATE POLICY "bookings: admin and agent can insert any"
   ON bookings FOR INSERT
   WITH CHECK (
-    EXISTS (
-      SELECT 1 FROM profiles p
-      WHERE p.id = auth.uid()
-        AND p.role IN ('admin', 'agent')
-    )
+    EXISTS (SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.role IN ('admin', 'agent'))
   );
 
--- Admin can update any booking (e.g. change status)
 CREATE POLICY "bookings: admin can update all"
   ON bookings FOR UPDATE
   USING (
-    EXISTS (
-      SELECT 1 FROM profiles p
-      WHERE p.id = auth.uid()
-        AND p.role = 'admin'
-    )
+    EXISTS (SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.role = 'admin')
   );
 
 -- ---------------------------------------------------------------------------
 -- messages policies
 -- ---------------------------------------------------------------------------
 
--- Users can read messages addressed to them
+DROP POLICY IF EXISTS "messages: users can read own inbox"          ON messages;
+DROP POLICY IF EXISTS "messages: users can read own sent"           ON messages;
+DROP POLICY IF EXISTS "messages: admin can read all"                ON messages;
+DROP POLICY IF EXISTS "messages: authenticated users can insert"    ON messages;
+DROP POLICY IF EXISTS "messages: recipients can mark read"          ON messages;
+
 CREATE POLICY "messages: users can read own inbox"
   ON messages FOR SELECT
   USING (auth.uid() = to_id);
 
--- Users can also read messages they sent
 CREATE POLICY "messages: users can read own sent"
   ON messages FOR SELECT
   USING (auth.uid() = from_id);
 
--- Admin can read all messages
 CREATE POLICY "messages: admin can read all"
   ON messages FOR SELECT
   USING (
-    EXISTS (
-      SELECT 1 FROM profiles p
-      WHERE p.id = auth.uid()
-        AND p.role = 'admin'
-    )
+    EXISTS (SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.role = 'admin')
   );
 
--- Authenticated users can send messages
 CREATE POLICY "messages: authenticated users can insert"
   ON messages FOR INSERT
   WITH CHECK (auth.uid() = from_id);
 
--- Recipients can mark their messages as read
 CREATE POLICY "messages: recipients can mark read"
   ON messages FOR UPDATE
   USING (auth.uid() = to_id);
@@ -263,22 +238,23 @@ CREATE POLICY "messages: recipients can mark read"
 -- tour_reviews policies
 -- ---------------------------------------------------------------------------
 
--- Anyone (including anonymous visitors) can read tour reviews
+DROP POLICY IF EXISTS "tour_reviews: public read"                        ON tour_reviews;
+DROP POLICY IF EXISTS "tour_reviews: authenticated users can insert own" ON tour_reviews;
+DROP POLICY IF EXISTS "tour_reviews: users can update own"               ON tour_reviews;
+DROP POLICY IF EXISTS "tour_reviews: users can delete own"               ON tour_reviews;
+
 CREATE POLICY "tour_reviews: public read"
   ON tour_reviews FOR SELECT
   USING (true);
 
--- Authenticated users can submit a review for their own user_id
 CREATE POLICY "tour_reviews: authenticated users can insert own"
   ON tour_reviews FOR INSERT
   WITH CHECK (auth.uid() = user_id);
 
--- Users can update their own reviews
 CREATE POLICY "tour_reviews: users can update own"
   ON tour_reviews FOR UPDATE
   USING (auth.uid() = user_id);
 
--- Users can delete their own reviews
 CREATE POLICY "tour_reviews: users can delete own"
   ON tour_reviews FOR DELETE
   USING (auth.uid() = user_id);

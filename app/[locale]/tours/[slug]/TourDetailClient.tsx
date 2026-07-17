@@ -271,7 +271,7 @@ function RelatedCard({ tour }: { tour: Tour }) {
       <Link href={`/tours/${tour.id}`} className="block">
         <div className="relative h-44 overflow-hidden bg-slate-100">
           <Image
-            src={imgErr ? "/imgplaceholder.webp" : tour.image}
+            src={imgErr ? "/tours/morocco-highlights-7day.jpg" : tour.image}
             alt={tour.title}
             fill
             unoptimized
@@ -445,7 +445,7 @@ export default function TourDetailClient({ slug }: { slug: string }) {
         {/* ── Hero ──────────────────────────────────────────────────────── */}
         <section className="relative h-[420px] sm:h-[460px] overflow-hidden">
           <Image
-            src={imgErr ? "/imgplaceholder.webp" : tour.image}
+            src={imgErr ? "/tours/morocco-highlights-7day.jpg" : tour.image}
             alt={tour.title}
             fill
             unoptimized

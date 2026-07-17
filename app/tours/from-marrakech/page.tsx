@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Browse 31 guided tours from Marrakech — Sahara desert escapes, High Atlas treks, coastal drives to Essaouira and Agadir. Private tours, small groups, expert guides.",
     type: "website",
-    images: [{ url: "/destinations/sahara.webp", alt: "Sahara Desert Tour from Marrakech" }],
+    images: [{ url: "/tours/sahara-3day-marrakech.jpg", alt: "Sahara Desert Tour from Marrakech" }],
   },
   robots: {
     index: true,

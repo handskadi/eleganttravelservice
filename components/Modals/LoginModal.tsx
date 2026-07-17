@@ -23,8 +23,8 @@ export default function LoginModal() {
     setLoading(true);
     await new Promise(r => setTimeout(r, 600));
     const result = mode === "login"
-      ? login(email, password)
-      : register(name, email, password);
+      ? await login(email, password)
+      : await register(name, email, password);
     setLoading(false);
     if (!result.success) setError(result.message);
   };

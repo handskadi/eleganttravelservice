@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Seed / one-off scripts (may contain env refs)
+supabase/seed.mjs

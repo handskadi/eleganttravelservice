@@ -130,7 +130,7 @@ export default function AboutPage() {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/destinations/chefchaouen.webp"
+            src="/tours/chefchaouen-blue-city-2day.jpg"
             alt="Chefchaouen, Morocco"
             fill
             priority
@@ -248,7 +248,7 @@ export default function AboutPage() {
           {/* Image */}
           <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/amazigh.webp"
+              src="/tours/anti-atlas-berber-trek-2day.jpg"
               alt="Amazigh culture — Morocco"
               fill
               className="object-cover"
@@ -391,7 +391,7 @@ export default function AboutPage() {
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/destinations/sahara.webp"
+            src="/tours/sahara-3day-marrakech.jpg"
             alt="Sahara Desert, Morocco"
             fill
             className="object-cover"

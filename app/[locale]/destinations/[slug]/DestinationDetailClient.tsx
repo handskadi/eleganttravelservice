@@ -135,7 +135,7 @@ function ExperienceCard({ thing }: { thing: ThingToDo }) {
     >
       <div className="relative h-44 overflow-hidden bg-slate-100 shrink-0">
         <Image
-          src={imgErr ? "/imgplaceholder.webp" : thing.image}
+          src={imgErr ? "/tours/morocco-highlights-7day.jpg" : thing.image}
           alt={thing.title}
           fill
           unoptimized
@@ -177,7 +177,7 @@ function RelatedDestCard({ dest }: { dest: DestinationData }) {
       style={{ height: "220px" }}
     >
       <Image
-        src={imgErr ? "/imgplaceholder.webp" : dest.heroImage}
+        src={imgErr ? "/tours/morocco-highlights-7day.jpg" : dest.heroImage}
         alt={dest.name}
         fill
         unoptimized
@@ -233,7 +233,7 @@ function DestTourCard({
       <div className="relative h-52 overflow-hidden bg-slate-100 shrink-0">
         <Link href={`/tours/${tour.id}`} className="absolute inset-0 z-0">
           <Image
-            src={imgError ? "/imgplaceholder.webp" : tour.image}
+            src={imgError ? "/tours/morocco-highlights-7day.jpg" : tour.image}
             alt={tour.title}
             fill
             unoptimized
@@ -395,7 +395,7 @@ export default function DestinationDetailClient({ slug }: { slug: string }) {
     : dest.highlights;
 
   const displayThingsToDo = content?.thingsToDo
-    ? content.thingsToDo.map((thing, i) => ({ ...thing, image: dest.thingsToDo[i]?.image ?? "/imgplaceholder.webp" }))
+    ? content.thingsToDo.map((thing, i) => ({ ...thing, image: dest.thingsToDo[i]?.image ?? "/tours/morocco-highlights-7day.jpg" }))
     : dest.thingsToDo;
 
   const aboutParagraphs = displayAbout.split("\n\n").filter(Boolean);

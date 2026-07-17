@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Browse guided tours from Fes — Sahara desert escapes, Chefchaouen blue city, imperial city circuits and luxury riads. Private tours from Morocco's oldest city.",
     type: "website",
-    images: [{ url: "/destinations/sahara.webp", alt: "Morocco Tour from Fes" }],
+    images: [{ url: "/tours/sahara-3day-marrakech.jpg", alt: "Morocco Tour from Fes" }],
   },
   robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
 };

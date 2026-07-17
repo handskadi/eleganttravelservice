@@ -185,23 +185,31 @@ export type Database = {
         Row: ProfileRow;
         Insert: ProfileInsert;
         Update: ProfileUpdate;
+        Relationships: [];
       };
       bookings: {
         Row: BookingRow;
         Insert: BookingInsert;
         Update: BookingUpdate;
+        Relationships: [];
       };
       messages: {
         Row: MessageRow;
         Insert: MessageInsert;
         Update: MessageUpdate;
+        Relationships: [];
       };
       tours: {
         Row: TourRow;
         Insert: TourInsert;
         Update: TourUpdate;
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 };
 

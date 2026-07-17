@@ -16,7 +16,7 @@ const localBusinessJsonLd = {
   "description": "Morocco's premier private travel agency. 100+ curated tours including Sahara desert, High Atlas treks, imperial cities and coastal escapes. Founded 2014 in Marrakech.",
   "url": "https://www.eleganttravelservice.com",
   "logo": { "@type": "ImageObject", "url": "https://www.eleganttravelservice.com/logo.png", "width": 200, "height": 60 },
-  "image": "https://www.eleganttravelservice.com/destinations/sahara.webp",
+  "image": "https://www.eleganttravelservice.com/tours/sahara-3day-marrakech.jpg",
   "telephone": "+212-524-000000",
   "email": "info@eleganttravel.ma",
   "address": {

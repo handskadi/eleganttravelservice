@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
-  FaEye, FaEyeSlash, FaGoogle, FaLock, FaUser,
+  FaEye, FaEyeSlash, FaGoogle, FaLock,
   FaCompass, FaStar, FaShieldAlt, FaArrowLeft,
   FaCheckCircle,
 } from "react-icons/fa";
@@ -12,12 +12,6 @@ import { HiMail } from "react-icons/hi";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/contexts/AuthContext";
-
-const DEMO_ACCOUNTS = [
-  { email: "user@ets.com",  password: "demo123",  role: "User",  color: "bg-blue-50 text-blue-700 border-blue-100" },
-  { email: "agent@ets.com", password: "agent123", role: "Agent", color: "bg-amber-50 text-amber-700 border-amber-100" },
-  { email: "admin@ets.com", password: "admin123", role: "Admin", color: "bg-emerald-50 text-emerald-700 border-emerald-100" },
-];
 
 function AuthForm() {
   const t = useTranslations("login");
@@ -45,12 +39,6 @@ function AuthForm() {
     }
   }, [user, router]);
 
-  const fillDemo = (acc: typeof DEMO_ACCOUNTS[number]) => {
-    setEmail(acc.email);
-    setPassword(acc.password);
-    setError("");
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -58,7 +46,7 @@ function AuthForm() {
     await new Promise(r => setTimeout(r, 600));
 
     if (mode === "login") {
-      const result = login(email, password);
+      const result = await login(email, password);
       setLoading(false);
       if (result.success) {
         setSuccess(t("successLogin"));
@@ -68,7 +56,7 @@ function AuthForm() {
         setError(result.message);
       }
     } else {
-      const result = register(name, email, password);
+      const result = await register(name, email, password);
       setLoading(false);
       if (result.success) {
         setSuccess(t("successSignup"));
@@ -117,34 +105,6 @@ function AuthForm() {
           </button>
         ))}
       </div>
-
-      {/* Demo accounts */}
-      {mode === "login" && (
-        <div className="mb-6 p-4 bg-amber-50 border border-amber-100 rounded-2xl">
-          <p className="text-xs font-bold text-amber-700 mb-3 flex items-center gap-1.5">
-            <FaShieldAlt className="w-3 h-3" />
-            {t("demoAccounts")}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {DEMO_ACCOUNTS.map(acc => (
-              <button
-                key={acc.email}
-                type="button"
-                onClick={() => fillDemo(acc)}
-                className={`flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-full border cursor-pointer transition hover:opacity-80 ${acc.color}`}
-              >
-                <FaUser className="w-2.5 h-2.5" />
-                {acc.role}
-              </button>
-            ))}
-          </div>
-          {email && (
-            <p className="text-xs text-amber-600 mt-2 font-medium">
-              {t("usingLabel")} {email}
-            </p>
-          )}
-        </div>
-      )}
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -288,7 +248,7 @@ function LeftPanel() {
     <div className="hidden lg:flex lg:w-[52%] xl:w-[55%] relative flex-col justify-between overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/destinations/sahara.webp"
+          src="/tours/sahara-3day-marrakech.jpg"
           alt="Morocco Sahara Desert"
           fill
           priority

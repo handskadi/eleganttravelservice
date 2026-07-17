@@ -21,7 +21,7 @@ export default async function AboutSection() {
           <div className="relative">
             <div className="relative w-full max-w-md mx-auto">
               <Image
-                src="/morocco-culture.webp"
+                src="/tours/cultural-immersion-morocco-9day.jpg"
                 alt="About Elegant Travel Service"
                 width={520}
                 height={600}

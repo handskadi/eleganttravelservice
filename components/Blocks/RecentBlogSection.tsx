@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 
 const blogPosts = [
   {
-    image: "/blog/post1.webp",
+    image: "/blog/chefchaouen-2025.jpg",
     category: "Travel Guide",
     title: "10 Reasons to Visit Chefchaouen in 2025",
     excerpt: "The blue city is more than a photogenic backdrop. Here's how to experience the authentic soul of Morocco's most beautiful mountain town.",
@@ -22,7 +22,7 @@ const blogPosts = [
     slug: "/blog/chefchaouen-2025",
   },
   {
-    image: "/blog/post2.webp",
+    image: "/blog/sahara-packing-list.jpg",
     category: "Packing Guide",
     title: "The Ultimate Sahara Desert Packing List",
     excerpt: "From merino wool base layers to sunrise alarm times — everything you need for a comfortable, unforgettable desert overnight.",
@@ -32,7 +32,7 @@ const blogPosts = [
     slug: "/blog/sahara-packing-list",
   },
   {
-    image: "/blog/post3.webp",
+    image: "/blog/marrakech-street-food.jpg",
     category: "Food & Culture",
     title: "Best Street Food in Marrakech's Medina",
     excerpt: "Djemaa el-Fna after sunset is one of the world's great food experiences. Here's what to eat, where to find it, and what to avoid.",
@@ -42,7 +42,7 @@ const blogPosts = [
     slug: "/blog/marrakech-street-food",
   },
   {
-    image: "/blog/post4.webp",
+    image: "/blog/toubkal-hiking-guide.jpg",
     category: "Trekking",
     title: "Hiking Toubkal: What to Really Expect",
     excerpt: "North Africa's highest peak is achievable for fit non-climbers — but preparation is everything. Our certified guides break it down.",

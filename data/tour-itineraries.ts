@@ -24,12 +24,12 @@ export const tourDetails: TourDetail[] = [
     tourId: "sahara-3day-marrakech",
     slug: "sahara-3day-marrakech",
     gallery: [
-      "/destinations/sahara.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
-      "/moroccan-tiles.webp",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
       "/background/hero-desert-image.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -93,10 +93,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "hot-air-balloon-marrakech",
     slug: "hot-air-balloon-marrakech",
     gallery: [
-      "/destinations/hot-air-baloon-marrakech.webp",
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/moroccan-tiles.webp",
+      "/tours/hot-air-balloon-marrakech.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
     ],
     itinerary: [
       {
@@ -129,11 +129,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "chefchaouen-blue-city-2day",
     slug: "chefchaouen-blue-city-2day",
     gallery: [
-      "/destinations/chefchaouen.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -180,11 +180,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "atlas-mountains-trek-3day",
     slug: "atlas-mountains-trek-3day",
     gallery: [
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
-      "/destinations/chefchaouen.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -247,11 +247,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "fes-imperial-city-2day",
     slug: "fes-imperial-city-2day",
     gallery: [
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
-      "/destinations/chefchaouen.webp",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
     ],
     itinerary: [
       {
@@ -301,11 +301,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "essaouira-coastal-2day",
     slug: "essaouira-coastal-2day",
     gallery: [
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
-      "/moroccan-handicrafts.webp",
-      "/amazigh.webp",
-      "/imgplaceholder.webp",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/morocco-highlights-7day.jpg",
     ],
     itinerary: [
       {
@@ -352,11 +352,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "merzouga-luxury-camp-2day",
     slug: "merzouga-luxury-camp-2day",
     gallery: [
-      "/destinations/sahara.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
       "/background/hero-desert-image.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -406,11 +406,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "dades-draa-valley-3day",
     slug: "dades-draa-valley-3day",
     gallery: [
-      "/amazigh.webp",
-      "/destinations/sahara.webp",
-      "/morocco-culture.webp",
-      "/moroccan-tiles.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -472,10 +472,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "ait-ben-haddou-day-trip",
     slug: "ait-ben-haddou-day-trip",
     gallery: [
-      "/morocco-culture.webp",
-      "/amazigh.webp",
-      "/destinations/sahara.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -507,10 +507,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "marrakech-food-souk-halfday",
     slug: "marrakech-food-souk-halfday",
     gallery: [
-      "/destinations/hot-air-baloon-marrakech.webp",
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
+      "/tours/hot-air-balloon-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -545,10 +545,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "quad-biking-agafay-3hrs",
     slug: "quad-biking-agafay-3hrs",
     gallery: [
-      "/destinations/sahara.webp",
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -581,10 +581,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "royal-hammam-spa-marrakech",
     slug: "royal-hammam-spa-marrakech",
     gallery: [
-      "/moroccan-tiles.webp",
-      "/moroccan-handicrafts.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -616,11 +616,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "toubkal-summit-expedition-3day",
     slug: "toubkal-summit-expedition-3day",
     gallery: [
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
-      "/destinations/chefchaouen.webp",
-      "/moroccan-handicrafts.webp",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
     ],
     itinerary: [
       {
@@ -684,10 +684,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "casablanca-rabat-2day",
     slug: "casablanca-rabat-2day",
     gallery: [
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
     ],
     itinerary: [
       {
@@ -735,11 +735,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "agadir-beach-surf-3day",
     slug: "agadir-beach-surf-3day",
     gallery: [
-      "/imgplaceholder.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
-      "/destinations/atlas.webp",
-      "/morocco-culture.webp",
+      "/tours/morocco-highlights-7day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -801,11 +801,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "anti-atlas-berber-trek-2day",
     slug: "anti-atlas-berber-trek-2day",
     gallery: [
-      "/amazigh.webp",
-      "/destinations/atlas.webp",
-      "/morocco-culture.webp",
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
     ],
     itinerary: [
       {
@@ -852,10 +852,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "ourika-valley-day-trip",
     slug: "ourika-valley-day-trip",
     gallery: [
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -886,11 +886,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "tangier-northern-morocco-2day",
     slug: "tangier-northern-morocco-2day",
     gallery: [
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
-      "/moroccan-handicrafts.webp",
-      "/destinations/chefchaouen.webp",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
     ],
     itinerary: [
       {
@@ -938,11 +938,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "private-riad-marrakech-2day",
     slug: "private-riad-marrakech-2day",
     gallery: [
-      "/moroccan-tiles.webp",
-      "/moroccan-handicrafts.webp",
-      "/destinations/hot-air-baloon-marrakech.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/hot-air-balloon-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -991,10 +991,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "agafay-camel-sunset-2hrs",
     slug: "agafay-camel-sunset-2hrs",
     gallery: [
-      "/destinations/sahara.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
-      "/destinations/atlas.webp",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
     ],
     itinerary: [
       {
@@ -1029,10 +1029,10 @@ export const tourDetails: TourDetail[] = [
     tourId: "marrakech-merzouga-3day",
     slug: "marrakech-merzouga-3day",
     gallery: [
-      "/tours/marrakech-merzouga-3day.webp",
-      "/destinations/sahara.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
+      "/tours/marrakech-merzouga-3day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
       "/background/hero-desert-image.webp",
     ],
     itinerary: [
@@ -1100,11 +1100,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "marrakech-fes-desert-5day",
     slug: "marrakech-fes-desert-5day",
     gallery: [
-      "/tours/marrakech-fes-desert-5day.webp",
-      "/destinations/sahara.webp",
-      "/moroccan-handicrafts.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
+      "/tours/marrakech-fes-desert-5day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
     ],
     itinerary: [
       {
@@ -1204,12 +1204,12 @@ export const tourDetails: TourDetail[] = [
     tourId: "morocco-highlights-7day",
     slug: "morocco-highlights-7day",
     gallery: [
-      "/tours/morocco-highlights-7day.webp",
-      "/moroccan-handicrafts.webp",
-      "/destinations/chefchaouen.webp",
-      "/destinations/sahara.webp",
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
+      "/tours/morocco-highlights-7day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -1340,11 +1340,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "grand-morocco-10day",
     slug: "grand-morocco-10day",
     gallery: [
-      "/tours/grand-morocco-10day.webp",
-      "/destinations/sahara.webp",
-      "/moroccan-handicrafts.webp",
-      "/destinations/chefchaouen.webp",
-      "/amazigh.webp",
+      "/tours/grand-morocco-10day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
       "/background/hero-desert-image.webp",
     ],
     itinerary: [
@@ -1522,12 +1522,12 @@ export const tourDetails: TourDetail[] = [
     tourId: "complete-morocco-14day",
     slug: "complete-morocco-14day",
     gallery: [
-      "/tours/complete-morocco-14day.webp",
-      "/destinations/sahara.webp",
-      "/destinations/chefchaouen.webp",
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
+      "/tours/complete-morocco-14day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
     ],
     itinerary: [
       {
@@ -1759,11 +1759,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "north-morocco-loop-7day",
     slug: "north-morocco-loop-7day",
     gallery: [
-      "/tours/north-morocco-loop-7day.webp",
-      "/destinations/chefchaouen.webp",
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
+      "/tours/north-morocco-loop-7day.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
     ],
     itinerary: [
       {
@@ -1893,11 +1893,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "atlantic-coast-road-trip-5day",
     slug: "atlantic-coast-road-trip-5day",
     gallery: [
-      "/tours/atlantic-coast-road-trip-5day.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
-      "/imgplaceholder.webp",
-      "/morocco-culture.webp",
+      "/tours/atlantic-coast-road-trip-5day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/morocco-highlights-7day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -1993,11 +1993,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "atlas-valleys-expedition-4day",
     slug: "atlas-valleys-expedition-4day",
     gallery: [
-      "/tours/atlas-valleys-expedition-4day.webp",
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
-      "/moroccan-tiles.webp",
+      "/tours/atlas-valleys-expedition-4day.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
     ],
     itinerary: [
       {
@@ -2077,12 +2077,12 @@ export const tourDetails: TourDetail[] = [
     tourId: "imperial-cities-grand-6day",
     slug: "imperial-cities-grand-6day",
     gallery: [
-      "/tours/imperial-cities-grand-6day.webp",
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
-      "/destinations/chefchaouen.webp",
+      "/tours/imperial-cities-grand-6day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
     ],
     itinerary: [
       {
@@ -2195,11 +2195,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "family-adventure-morocco-8day",
     slug: "family-adventure-morocco-8day",
     gallery: [
-      "/tours/family-adventure-morocco-8day.webp",
-      "/destinations/sahara.webp",
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
+      "/tours/family-adventure-morocco-8day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -2340,11 +2340,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "romantic-honeymoon-morocco-7day",
     slug: "romantic-honeymoon-morocco-7day",
     gallery: [
-      "/tours/romantic-honeymoon-morocco-7day.webp",
-      "/destinations/sahara.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
+      "/tours/romantic-honeymoon-morocco-7day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
       "/background/hero-desert-image.webp",
     ],
     itinerary: [
@@ -2470,12 +2470,12 @@ export const tourDetails: TourDetail[] = [
     tourId: "photography-tour-morocco-10day",
     slug: "photography-tour-morocco-10day",
     gallery: [
-      "/tours/photography-tour-morocco-10day.webp",
-      "/destinations/chefchaouen.webp",
-      "/moroccan-handicrafts.webp",
-      "/destinations/sahara.webp",
-      "/morocco-culture.webp",
-      "/amazigh.webp",
+      "/tours/photography-tour-morocco-10day.jpg",
+      "/tours/chefchaouen-blue-city-2day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
     ],
     itinerary: [
       {
@@ -2653,11 +2653,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "adventure-trek-morocco-8day",
     slug: "adventure-trek-morocco-8day",
     gallery: [
-      "/tours/adventure-trek-morocco-8day.webp",
-      "/destinations/atlas.webp",
-      "/amazigh.webp",
-      "/destinations/sahara.webp",
-      "/morocco-culture.webp",
+      "/tours/adventure-trek-morocco-8day.jpg",
+      "/tours/atlas-mountains-trek-3day.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -2796,11 +2796,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "cultural-immersion-morocco-9day",
     slug: "cultural-immersion-morocco-9day",
     gallery: [
-      "/tours/cultural-immersion-morocco-9day.webp",
-      "/moroccan-handicrafts.webp",
-      "/moroccan-tiles.webp",
-      "/amazigh.webp",
-      "/morocco-culture.webp",
+      "/tours/cultural-immersion-morocco-9day.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
+      "/tours/cultural-immersion-morocco-9day.jpg",
     ],
     itinerary: [
       {
@@ -2961,11 +2961,11 @@ export const tourDetails: TourDetail[] = [
     tourId: "luxury-morocco-7day",
     slug: "luxury-morocco-7day",
     gallery: [
-      "/tours/luxury-morocco-7day.webp",
-      "/moroccan-tiles.webp",
-      "/destinations/sahara.webp",
-      "/moroccan-handicrafts.webp",
-      "/amazigh.webp",
+      "/tours/luxury-morocco-7day.jpg",
+      "/tours/royal-hammam-spa-marrakech.jpg",
+      "/tours/sahara-3day-marrakech.jpg",
+      "/tours/marrakech-zellige-workshop.jpg",
+      "/tours/anti-atlas-berber-trek-2day.jpg",
       "/background/hero-desert-image.webp",
     ],
     itinerary: [

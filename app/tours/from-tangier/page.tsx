@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description:
       "Browse 6 guided tours from Tangier — northern Morocco loop, Chefchaouen blue city, Tetouan, Fes circuits and the full Morocco traverse. Private tours from Africa's gateway.",
     type: "website",
-    images: [{ url: "/destinations/sahara.webp", alt: "Morocco Tour from Tangier" }],
+    images: [{ url: "/tours/sahara-3day-marrakech.jpg", alt: "Morocco Tour from Tangier" }],
   },
   robots: {
     index: true,

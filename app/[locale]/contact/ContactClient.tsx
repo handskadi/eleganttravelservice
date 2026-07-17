@@ -102,7 +102,7 @@ export default function ContactClient() {
       <section
         className="relative min-h-[50vh] flex items-center justify-center pt-20"
         style={{
-          backgroundImage: "url('/destinations/sahara.webp')",
+          backgroundImage: "url('/tours/sahara-3day-marrakech.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
