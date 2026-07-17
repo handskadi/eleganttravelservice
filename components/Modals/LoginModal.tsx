@@ -53,18 +53,6 @@ export default function LoginModal() {
           </p>
         </div>
 
-        {/* Demo Credentials */}
-        {mode === "login" && (
-          <div className="mx-6 mt-5 p-3 bg-amber-50 border border-amber-100 rounded-xl text-xs text-slate-600">
-            <p className="font-semibold text-amber-700 mb-1">Demo accounts:</p>
-            <div className="space-y-0.5">
-              <p>User: <code className="text-slate-800">user@ets.com</code> / <code>demo123</code></p>
-              <p>Admin: <code className="text-slate-800">admin@ets.com</code> / <code>admin123</code></p>
-              <p>Agent: <code className="text-slate-800">agent@ets.com</code> / <code>agent123</code></p>
-            </div>
-          </div>
-        )}
-
         <form onSubmit={handleSubmit} className="px-6 py-5 space-y-4">
           {mode === "register" && (
             <div>
