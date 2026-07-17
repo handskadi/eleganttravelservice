@@ -5,13 +5,11 @@ import { updateSession } from "./lib/supabase/middleware";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-const AUTH_GUARDED = ["/dashboard", "/admin"];
-
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const isGuarded = AUTH_GUARDED.some((p) => pathname.startsWith(p));
-  if (isGuarded) {
+  // For dashboard/admin: refresh session but let client components guard auth
+  if (pathname.startsWith("/dashboard") || pathname.startsWith("/admin")) {
     return updateSession(request);
   }
 
