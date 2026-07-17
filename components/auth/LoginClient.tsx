@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
   FaEye, FaEyeSlash, FaGoogle, FaLock, FaUser,
@@ -17,7 +17,6 @@ function AuthForm() {
   const t = useTranslations("login");
   const locale = useLocale();
   const isRTL = locale === "ar";
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { login, register, user, loading: authLoading } = useAuth();
 
@@ -38,7 +37,7 @@ function AuthForm() {
       const dest = (user.role === "admin" || user.role === "agent") ? "/admin" : "/dashboard";
       window.location.href = dest;
     }
-  }, [user, loading]);
+  }, [user, authLoading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
