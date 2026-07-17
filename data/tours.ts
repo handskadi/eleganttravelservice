@@ -38,7 +38,7 @@ export const tours: Tour[] = [
   {
     id: "sahara-3day-marrakech",
     title: "3 Days Sahara Desert Adventure from Marrakech",
-    image: "/destinations/sahara.webp",
+    image: "/tours/sahara-3day-marrakech.jpg",
     location: "Merzouga, Morocco",
     price: 299,
     originalPrice: 380,
@@ -59,7 +59,7 @@ export const tours: Tour[] = [
   {
     id: "hot-air-balloon-marrakech",
     title: "Hot Air Balloon Sunrise Over Marrakech — 4 Hours",
-    image: "/destinations/hot-air-baloon-marrakech.webp",
+    image: "/tours/hot-air-balloon-marrakech.jpg",
     location: "Marrakech, Morocco",
     price: 189,
     originalPrice: 230,
@@ -80,7 +80,7 @@ export const tours: Tour[] = [
   {
     id: "chefchaouen-blue-city-2day",
     title: "2 Days Chefchaouen Blue City Tour",
-    image: "/destinations/chefchaouen.webp",
+    image: "/tours/chefchaouen-blue-city-2day.jpg",
     location: "Chefchaouen, Morocco",
     price: 159,
     rating: 5.0,
@@ -100,7 +100,7 @@ export const tours: Tour[] = [
   {
     id: "atlas-mountains-trek-3day",
     title: "3 Days Atlas Mountains Berber Trek",
-    image: "/destinations/atlas.webp",
+    image: "/tours/atlas-mountains-trek-3day.jpg",
     location: "Imlil, Morocco",
     price: 249,
     originalPrice: 299,
@@ -121,7 +121,7 @@ export const tours: Tour[] = [
   {
     id: "fes-imperial-city-2day",
     title: "2 Days Fes Imperial City Explorer",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/fes-imperial-city-2day.jpg",
     location: "Fes, Morocco",
     price: 175,
     rating: 4.7,
@@ -140,7 +140,7 @@ export const tours: Tour[] = [
   {
     id: "essaouira-coastal-2day",
     title: "2 Days Essaouira Coastal Escape",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/essaouira-coastal-2day.jpg",
     location: "Essaouira, Morocco",
     price: 145,
     rating: 4.6,
@@ -159,7 +159,7 @@ export const tours: Tour[] = [
   {
     id: "merzouga-luxury-camp-2day",
     title: "2 Days Merzouga Luxury Desert Camp",
-    image: "/destinations/sahara.webp",
+    image: "/tours/merzouga-luxury-camp-2day.jpg",
     location: "Merzouga, Morocco",
     price: 499,
     originalPrice: 650,
@@ -180,7 +180,7 @@ export const tours: Tour[] = [
   {
     id: "dades-draa-valley-3day",
     title: "3 Days Dades Gorges & Draa Valley Road Trip",
-    image: "/amazigh.webp",
+    image: "/tours/dades-draa-valley-3day.jpg",
     location: "Ouarzazate, Morocco",
     price: 229,
     rating: 4.7,
@@ -199,7 +199,7 @@ export const tours: Tour[] = [
   {
     id: "ait-ben-haddou-day-trip",
     title: "Ait Ben Haddou & Ouarzazate — Full Day from Marrakech",
-    image: "/morocco-culture.webp",
+    image: "/tours/ait-ben-haddou-day-trip.jpg",
     location: "Ait Ben Haddou, Morocco",
     price: 195,
     rating: 4.8,
@@ -218,7 +218,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-food-souk-halfday",
     title: "Marrakech Food & Spice Souk Tour — Half Day",
-    image: "/destinations/hot-air-baloon-marrakech.webp",
+    image: "/tours/marrakech-food-souk-halfday.jpg",
     location: "Marrakech, Morocco",
     price: 95,
     rating: 4.9,
@@ -237,7 +237,7 @@ export const tours: Tour[] = [
   {
     id: "quad-biking-agafay-3hrs",
     title: "Quad Biking in Agafay Desert — 3 Hours",
-    image: "/destinations/sahara.webp",
+    image: "/tours/quad-biking-agafay-3hrs.jpg",
     location: "Agafay, Morocco",
     price: 119,
     rating: 4.7,
@@ -256,7 +256,7 @@ export const tours: Tour[] = [
   {
     id: "royal-hammam-spa-marrakech",
     title: "Royal Hammam & Argan Spa — 3 Hours in Marrakech",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/royal-hammam-spa-marrakech.jpg",
     location: "Marrakech, Morocco",
     price: 139,
     rating: 4.9,
@@ -275,7 +275,7 @@ export const tours: Tour[] = [
   {
     id: "toubkal-summit-expedition-3day",
     title: "3 Days Toubkal Summit Expedition — 4,167 m",
-    image: "/destinations/atlas.webp",
+    image: "/tours/toubkal-summit-expedition-3day.jpg",
     location: "Toubkal, Morocco",
     price: 359,
     originalPrice: 420,
@@ -296,7 +296,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-rabat-2day",
     title: "2 Days Casablanca & Rabat City Break",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/casablanca-rabat-2day.jpg",
     location: "Casablanca, Morocco",
     price: 155,
     rating: 4.5,
@@ -315,7 +315,7 @@ export const tours: Tour[] = [
   {
     id: "agadir-beach-surf-3day",
     title: "3 Days Agadir Beach & Surf Retreat",
-    image: "/imgplaceholder.webp",
+    image: "/tours/agadir-beach-surf-3day.jpg",
     location: "Agadir, Morocco",
     price: 219,
     rating: 4.6,
@@ -334,7 +334,7 @@ export const tours: Tour[] = [
   {
     id: "anti-atlas-berber-trek-2day",
     title: "2 Days Anti-Atlas Berber Villages Hidden Trek",
-    image: "/amazigh.webp",
+    image: "/tours/anti-atlas-berber-trek-2day.jpg",
     location: "Anti-Atlas, Morocco",
     price: 185,
     rating: 4.8,
@@ -353,7 +353,7 @@ export const tours: Tour[] = [
   {
     id: "ourika-valley-day-trip",
     title: "Ourika Valley Waterfalls — Day Trip from Marrakech",
-    image: "/destinations/atlas.webp",
+    image: "/tours/ourika-valley-day-trip.jpg",
     location: "Ourika Valley, Morocco",
     price: 99,
     rating: 4.7,
@@ -372,7 +372,7 @@ export const tours: Tour[] = [
   {
     id: "tangier-northern-morocco-2day",
     title: "2 Days Tangier & Northern Morocco Tour",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/tangier-northern-morocco-2day.jpg",
     location: "Tangier, Morocco",
     price: 189,
     rating: 4.6,
@@ -391,7 +391,7 @@ export const tours: Tour[] = [
   {
     id: "private-riad-marrakech-2day",
     title: "2 Days Private Riad Marrakech — Exclusive Experience",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/private-riad-marrakech-2day.jpg",
     location: "Marrakech, Morocco",
     price: 399,
     originalPrice: 520,
@@ -412,7 +412,7 @@ export const tours: Tour[] = [
   {
     id: "agafay-camel-sunset-2hrs",
     title: "Agafay Desert Camel Sunset Trek — 2 Hours",
-    image: "/destinations/sahara.webp",
+    image: "/tours/agafay-camel-sunset-2hrs.jpg",
     location: "Agafay Desert, Morocco",
     price: 85,
     rating: 4.8,
@@ -433,7 +433,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-merzouga-3day",
     title: "3 Days Marrakech to Sahara",
-    image: "/tours/marrakech-merzouga-3day.webp",
+    image: "/tours/marrakech-merzouga-3day.jpg",
     location: "Marrakech to Merzouga, Morocco",
     price: 549,
     originalPrice: 649,
@@ -469,7 +469,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-fes-desert-5day",
     title: "5 Days Desert and Imperial Cities",
-    image: "/tours/marrakech-fes-desert-5day.webp",
+    image: "/tours/marrakech-fes-desert-5day.jpg",
     location: "Marrakech to Fes via Sahara, Morocco",
     price: 895,
     originalPrice: 1050,
@@ -505,7 +505,7 @@ export const tours: Tour[] = [
   {
     id: "morocco-highlights-7day",
     title: "7 Days Morocco Highlights Tour",
-    image: "/tours/morocco-highlights-7day.webp",
+    image: "/tours/morocco-highlights-7day.jpg",
     location: "Casablanca to Marrakech, Morocco",
     price: 1250,
     originalPrice: 1490,
@@ -542,7 +542,7 @@ export const tours: Tour[] = [
   {
     id: "grand-morocco-10day",
     title: "10 Days Grand Morocco Circuit",
-    image: "/tours/grand-morocco-10day.webp",
+    image: "/tours/grand-morocco-10day.jpg",
     location: "Marrakech Circuit, Morocco",
     price: 2150,
     originalPrice: 2650,
@@ -580,7 +580,7 @@ export const tours: Tour[] = [
   {
     id: "complete-morocco-14day",
     title: "14 Days Complete Morocco Experience",
-    image: "/tours/complete-morocco-14day.webp",
+    image: "/tours/complete-morocco-14day.jpg",
     location: "All Regions, Morocco",
     price: 3450,
     originalPrice: 4100,
@@ -619,7 +619,7 @@ export const tours: Tour[] = [
   {
     id: "north-morocco-loop-7day",
     title: "7 Days Northern Morocco Loop",
-    image: "/tours/north-morocco-loop-7day.webp",
+    image: "/tours/north-morocco-loop-7day.jpg",
     location: "Tangier, Chefchaouen, Fes, Morocco",
     price: 1180,
     originalPrice: 1380,
@@ -655,7 +655,7 @@ export const tours: Tour[] = [
   {
     id: "atlantic-coast-road-trip-5day",
     title: "5 Days Atlantic Coastal Road Trip",
-    image: "/tours/atlantic-coast-road-trip-5day.webp",
+    image: "/tours/atlantic-coast-road-trip-5day.jpg",
     location: "Casablanca to Agadir, Morocco",
     price: 920,
     originalPrice: 1100,
@@ -690,7 +690,7 @@ export const tours: Tour[] = [
   {
     id: "atlas-valleys-expedition-4day",
     title: "4 Days High Atlas and Draa Valley",
-    image: "/tours/atlas-valleys-expedition-4day.webp",
+    image: "/tours/atlas-valleys-expedition-4day.jpg",
     location: "Marrakech, High Atlas and Draa Valley, Morocco",
     price: 760,
     originalPrice: 890,
@@ -725,7 +725,7 @@ export const tours: Tour[] = [
   {
     id: "imperial-cities-grand-6day",
     title: "6 Days Imperial Cities Grand Tour",
-    image: "/tours/imperial-cities-grand-6day.webp",
+    image: "/tours/imperial-cities-grand-6day.jpg",
     location: "Fes, Meknes, Rabat, Marrakech, Morocco",
     price: 1090,
     originalPrice: 1290,
@@ -761,7 +761,7 @@ export const tours: Tour[] = [
   {
     id: "family-adventure-morocco-8day",
     title: "8 Days Family Morocco Adventure",
-    image: "/tours/family-adventure-morocco-8day.webp",
+    image: "/tours/family-adventure-morocco-8day.jpg",
     location: "Marrakech, Atlas, Sahara, Morocco",
     price: 1490,
     originalPrice: 1750,
@@ -799,7 +799,7 @@ export const tours: Tour[] = [
   {
     id: "romantic-honeymoon-morocco-7day",
     title: "7 Days Romantic Morocco Honeymoon",
-    image: "/tours/romantic-honeymoon-morocco-7day.webp",
+    image: "/tours/romantic-honeymoon-morocco-7day.jpg",
     location: "Marrakech, Sahara, Essaouira, Morocco",
     price: 2850,
     originalPrice: 3400,
@@ -837,7 +837,7 @@ export const tours: Tour[] = [
   {
     id: "photography-tour-morocco-10day",
     title: "10 Days Morocco Photography Expedition",
-    image: "/tours/photography-tour-morocco-10day.webp",
+    image: "/tours/photography-tour-morocco-10day.jpg",
     location: "Nationwide, Morocco",
     price: 2480,
     originalPrice: 2900,
@@ -875,7 +875,7 @@ export const tours: Tour[] = [
   {
     id: "adventure-trek-morocco-8day",
     title: "8 Days Desert and Mountain Trek",
-    image: "/tours/adventure-trek-morocco-8day.webp",
+    image: "/tours/adventure-trek-morocco-8day.jpg",
     location: "Atlas Mountains and Sahara, Morocco",
     price: 1680,
     originalPrice: 1950,
@@ -912,7 +912,7 @@ export const tours: Tour[] = [
   {
     id: "cultural-immersion-morocco-9day",
     title: "9 Days Morocco Cultural Deep Dive",
-    image: "/tours/cultural-immersion-morocco-9day.webp",
+    image: "/tours/cultural-immersion-morocco-9day.jpg",
     location: "Fes, Marrakech, Rural Morocco",
     price: 1890,
     originalPrice: 2250,
@@ -950,7 +950,7 @@ export const tours: Tour[] = [
   {
     id: "luxury-morocco-7day",
     title: "7 Days Luxury Morocco — 5-Star Throughout",
-    image: "/tours/luxury-morocco-7day.webp",
+    image: "/tours/luxury-morocco-7day.jpg",
     location: "Casablanca, Fes, Marrakech, Morocco",
     price: 4950,
     originalPrice: 5800,
@@ -991,7 +991,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-cooking-class",
     title: "Moroccan Cooking Class in Marrakech Medina",
-    image: "/destinations/hot-air-baloon-marrakech.webp",
+    image: "/tours/marrakech-cooking-class.jpg",
     location: "Marrakech, Morocco",
     price: 79,
     rating: 4.9,
@@ -1011,7 +1011,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-medina-photography-walk",
     title: "Marrakech Medina Golden Hour Photography Walk",
-    image: "/morocco-culture.webp",
+    image: "/tours/marrakech-medina-photography-walk.jpg",
     location: "Marrakech, Morocco",
     price: 65,
     rating: 4.8,
@@ -1031,7 +1031,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-horse-riding-palmeraie",
     title: "Horse Riding Through the Marrakech Palmeraie",
-    image: "/amazigh.webp",
+    image: "/tours/marrakech-horse-riding-palmeraie.jpg",
     location: "Marrakech Palmeraie, Morocco",
     price: 89,
     rating: 4.7,
@@ -1051,7 +1051,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-fantasia-evening",
     title: "Chez Ali Fantasia Evening Dinner Show",
-    image: "/amazigh.webp",
+    image: "/tours/marrakech-fantasia-evening.jpg",
     location: "Marrakech, Morocco",
     price: 99,
     rating: 4.7,
@@ -1071,7 +1071,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-bike-medina-tour",
     title: "Marrakech Bike Tour — Medina Gates to Palmeraie",
-    image: "/morocco-culture.webp",
+    image: "/tours/marrakech-bike-medina-tour.jpg",
     location: "Marrakech, Morocco",
     price: 55,
     rating: 4.7,
@@ -1091,7 +1091,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-zellige-workshop",
     title: "Moroccan Zellige & Ceramics Art Workshop",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/marrakech-zellige-workshop.jpg",
     location: "Marrakech, Morocco",
     price: 85,
     rating: 4.8,
@@ -1113,7 +1113,7 @@ export const tours: Tour[] = [
   {
     id: "ouzoud-waterfalls-day-trip",
     title: "Ouzoud Waterfalls Day Trip from Marrakech",
-    image: "/destinations/atlas.webp",
+    image: "/tours/ouzoud-waterfalls-day-trip.jpg",
     location: "Ouzoud, Morocco",
     price: 79,
     originalPrice: 95,
@@ -1134,7 +1134,7 @@ export const tours: Tour[] = [
   {
     id: "essaouira-day-trip-marrakech",
     title: "Essaouira Atlantic Day Trip from Marrakech",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/essaouira-day-trip-marrakech.jpg",
     location: "Essaouira, Morocco",
     price: 75,
     rating: 4.8,
@@ -1154,7 +1154,7 @@ export const tours: Tour[] = [
   {
     id: "agafay-full-day",
     title: "Agafay Desert Full-Day Experience from Marrakech",
-    image: "/destinations/sahara.webp",
+    image: "/tours/agafay-full-day.jpg",
     location: "Agafay Desert, Morocco",
     price: 149,
     rating: 4.8,
@@ -1174,7 +1174,7 @@ export const tours: Tour[] = [
   {
     id: "imlil-valley-day-trip",
     title: "Imlil Valley & Atlas Berber Villages Day Trip",
-    image: "/destinations/atlas.webp",
+    image: "/tours/imlil-valley-day-trip.jpg",
     location: "Imlil, Morocco",
     price: 89,
     rating: 4.8,
@@ -1194,7 +1194,7 @@ export const tours: Tour[] = [
   {
     id: "setti-fatma-waterfalls-day",
     title: "Setti Fatma Seven Waterfalls Hike — Ourika Valley",
-    image: "/destinations/atlas.webp",
+    image: "/tours/setti-fatma-waterfalls-day.jpg",
     location: "Setti Fatma, Morocco",
     price: 85,
     rating: 4.7,
@@ -1214,7 +1214,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-day-trip-marrakech",
     title: "Casablanca Day Trip from Marrakech",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/casablanca-day-trip-marrakech.jpg",
     location: "Casablanca, Morocco",
     price: 95,
     rating: 4.6,
@@ -1234,7 +1234,7 @@ export const tours: Tour[] = [
   {
     id: "ouarzazate-cinema-day",
     title: "Ouarzazate & Ait Ben Haddou Cinema Tour",
-    image: "/morocco-culture.webp",
+    image: "/tours/ouarzazate-cinema-day.jpg",
     location: "Ouarzazate, Morocco",
     price: 115,
     originalPrice: 139,
@@ -1255,7 +1255,7 @@ export const tours: Tour[] = [
   {
     id: "taroudant-day-trip",
     title: "Taroudant — The Little Marrakech — Day Trip",
-    image: "/amazigh.webp",
+    image: "/tours/taroudant-day-trip.jpg",
     location: "Taroudant, Morocco",
     price: 99,
     rating: 4.6,
@@ -1277,7 +1277,7 @@ export const tours: Tour[] = [
   {
     id: "fes-meknes-2day",
     title: "2 Days Fes & Meknes Imperial Discovery",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/fes-meknes-2day.jpg",
     location: "Fes & Meknes, Morocco",
     price: 285,
     rating: 4.8,
@@ -1297,7 +1297,7 @@ export const tours: Tour[] = [
   {
     id: "tangier-tetouan-2day",
     title: "2 Days Tangier & Tetouan Gateway Tour",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/tangier-tetouan-2day.jpg",
     location: "Tangier & Tetouan, Morocco",
     price: 245,
     rating: 4.7,
@@ -1317,7 +1317,7 @@ export const tours: Tour[] = [
   {
     id: "sahara-express-fes-2day",
     title: "2 Days Sahara Express from Fes",
-    image: "/destinations/sahara.webp",
+    image: "/tours/sahara-express-fes-2day.jpg",
     location: "Fes to Merzouga, Morocco",
     price: 349,
     originalPrice: 419,
@@ -1338,7 +1338,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-agadir-coastal-2day",
     title: "2 Days Marrakech to Agadir Coastal Drive",
-    image: "/imgplaceholder.webp",
+    image: "/tours/marrakech-agadir-coastal-2day.jpg",
     location: "Marrakech to Agadir, Morocco",
     price: 279,
     rating: 4.6,
@@ -1358,7 +1358,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-zagora-2day",
     title: "2 Days Marrakech to Zagora Draa Desert",
-    image: "/destinations/sahara.webp",
+    image: "/tours/marrakech-zagora-2day.jpg",
     location: "Zagora, Morocco",
     price: 325,
     rating: 4.7,
@@ -1378,7 +1378,7 @@ export const tours: Tour[] = [
   {
     id: "fes-chefchaouen-2day",
     title: "2 Days Fes to Chefchaouen Blue City Tour",
-    image: "/destinations/chefchaouen.webp",
+    image: "/tours/fes-chefchaouen-2day.jpg",
     location: "Fes to Chefchaouen, Morocco",
     price: 265,
     rating: 4.9,
@@ -1400,7 +1400,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-imperial-3day",
     title: "3 Days Casablanca & Imperial Cities Loop",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/casablanca-imperial-3day.jpg",
     location: "Casablanca, Morocco",
     price: 459,
     originalPrice: 549,
@@ -1421,7 +1421,7 @@ export const tours: Tour[] = [
   {
     id: "fes-sahara-3day",
     title: "3 Days Fes to Sahara Desert — Desert Escape",
-    image: "/destinations/sahara.webp",
+    image: "/tours/fes-sahara-3day.jpg",
     location: "Fes to Merzouga, Morocco",
     price: 549,
     originalPrice: 649,
@@ -1442,7 +1442,7 @@ export const tours: Tour[] = [
   {
     id: "tangier-chefchaouen-fes-3day",
     title: "3 Days Tangier to Fes via Chefchaouen",
-    image: "/destinations/chefchaouen.webp",
+    image: "/tours/tangier-chefchaouen-fes-3day.jpg",
     location: "Tangier to Fes, Morocco",
     price: 495,
     originalPrice: 595,
@@ -1463,7 +1463,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-coastal-3day",
     title: "3 Days Marrakech Coastal Escape — Essaouira & Agadir",
-    image: "/imgplaceholder.webp",
+    image: "/tours/marrakech-coastal-3day.jpg",
     location: "Essaouira & Agadir, Morocco",
     price: 499,
     rating: 4.7,
@@ -1483,7 +1483,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-desert-kasbahs-3day",
     title: "3 Days Marrakech Desert Kasbah Route",
-    image: "/amazigh.webp",
+    image: "/tours/marrakech-desert-kasbahs-3day.jpg",
     location: "Marrakech to Dades, Morocco",
     price: 475,
     originalPrice: 560,
@@ -1504,7 +1504,7 @@ export const tours: Tour[] = [
   {
     id: "agadir-anti-atlas-3day",
     title: "3 Days Agadir & Anti-Atlas Berber Villages",
-    image: "/amazigh.webp",
+    image: "/tours/agadir-anti-atlas-3day.jpg",
     location: "Agadir & Anti-Atlas, Morocco",
     price: 445,
     rating: 4.7,
@@ -1526,7 +1526,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-desert-4day",
     title: "4 Days Casablanca to Sahara Desert Adventure",
-    image: "/destinations/sahara.webp",
+    image: "/tours/casablanca-desert-4day.jpg",
     location: "Casablanca to Marrakech, Morocco",
     price: 749,
     rating: 4.8,
@@ -1546,7 +1546,7 @@ export const tours: Tour[] = [
   {
     id: "fes-desert-4day",
     title: "4 Days Fes to Sahara & Back — Desert Loop",
-    image: "/destinations/sahara.webp",
+    image: "/tours/fes-desert-4day.jpg",
     location: "Fes to Merzouga Loop, Morocco",
     price: 695,
     originalPrice: 820,
@@ -1567,7 +1567,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-north-4day",
     title: "4 Days Marrakech to Northern Imperial Cities",
-    image: "/destinations/chefchaouen.webp",
+    image: "/tours/marrakech-north-4day.jpg",
     location: "Marrakech to Fes via North, Morocco",
     price: 720,
     rating: 4.7,
@@ -1587,7 +1587,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-toubkal-4day",
     title: "4 Days High Atlas Toubkal Trek from Marrakech",
-    image: "/destinations/atlas.webp",
+    image: "/tours/marrakech-toubkal-4day.jpg",
     location: "Toubkal National Park, Morocco",
     price: 649,
     originalPrice: 750,
@@ -1608,7 +1608,7 @@ export const tours: Tour[] = [
   {
     id: "luxury-desert-4day",
     title: "4 Days Luxury Desert Circuit — Marrakech to Sahara",
-    image: "/destinations/sahara.webp",
+    image: "/tours/luxury-desert-4day.jpg",
     location: "Marrakech to Merzouga, Morocco",
     price: 1490,
     rating: 4.9,
@@ -1628,7 +1628,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-fes-4day",
     title: "4 Days Casablanca to Fes — Atlantic to Ancient",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/casablanca-fes-4day.jpg",
     location: "Casablanca to Fes, Morocco",
     price: 680,
     rating: 4.7,
@@ -1650,7 +1650,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-desert-loop-5day",
     title: "5 Days Casablanca to Sahara Desert Loop",
-    image: "/destinations/sahara.webp",
+    image: "/tours/casablanca-desert-loop-5day.jpg",
     location: "Casablanca to Marrakech, Morocco",
     price: 895,
     originalPrice: 1050,
@@ -1671,7 +1671,7 @@ export const tours: Tour[] = [
   {
     id: "tangier-marrakech-5day",
     title: "5 Days Tangier to Marrakech — Morocco Top to Bottom",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/tangier-marrakech-5day.jpg",
     location: "Tangier to Marrakech, Morocco",
     price: 945,
     rating: 4.8,
@@ -1691,7 +1691,7 @@ export const tours: Tour[] = [
   {
     id: "luxury-imperial-5day",
     title: "5 Days Luxury Imperial Cities Immersion",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/luxury-imperial-5day.jpg",
     location: "Fes, Marrakech & Imperial Morocco",
     price: 2450,
     originalPrice: 2900,
@@ -1712,7 +1712,7 @@ export const tours: Tour[] = [
   {
     id: "mountains-valleys-5day",
     title: "5 Days Atlas Mountains & Southern Valleys",
-    image: "/destinations/atlas.webp",
+    image: "/tours/mountains-valleys-5day.jpg",
     location: "Marrakech, High Atlas & Draa Valley, Morocco",
     price: 875,
     rating: 4.8,
@@ -1732,7 +1732,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-tangier-coast-5day",
     title: "5 Days Atlantic & Mediterranean Coastline",
-    image: "/imgplaceholder.webp",
+    image: "/tours/casablanca-tangier-coast-5day.jpg",
     location: "Casablanca to Tangier, Morocco",
     price: 890,
     originalPrice: 1050,
@@ -1755,7 +1755,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-north-6day",
     title: "6 Days Marrakech to Northern Morocco Full Circuit",
-    image: "/destinations/chefchaouen.webp",
+    image: "/tours/marrakech-north-6day.jpg",
     location: "Marrakech to Fes & North, Morocco",
     price: 1150,
     originalPrice: 1350,
@@ -1776,7 +1776,7 @@ export const tours: Tour[] = [
   {
     id: "sahara-mountains-6day",
     title: "6 Days Sahara Desert & Atlas Mountains Circuit",
-    image: "/destinations/sahara.webp",
+    image: "/tours/sahara-mountains-6day.jpg",
     location: "Marrakech Desert Circuit, Morocco",
     price: 1095,
     originalPrice: 1290,
@@ -1797,7 +1797,7 @@ export const tours: Tour[] = [
   {
     id: "luxury-imperial-6day",
     title: "6 Days Luxury Imperial Circuit — 5-Star Riads",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/luxury-imperial-6day.jpg",
     location: "Casablanca, Fes, Marrakech, Morocco",
     price: 3200,
     rating: 5.0,
@@ -1817,7 +1817,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-desert-south-6day",
     title: "6 Days Marrakech Southern Desert Loop",
-    image: "/amazigh.webp",
+    image: "/tours/marrakech-desert-south-6day.jpg",
     location: "Marrakech South Loop, Morocco",
     price: 1090,
     rating: 4.7,
@@ -1839,7 +1839,7 @@ export const tours: Tour[] = [
   {
     id: "desert-fes-marrakech-7day",
     title: "7 Days Desert Loop — Fes to Marrakech via Sahara",
-    image: "/destinations/sahara.webp",
+    image: "/tours/desert-fes-marrakech-7day.jpg",
     location: "Fes to Marrakech via Sahara, Morocco",
     price: 1340,
     originalPrice: 1580,
@@ -1860,7 +1860,7 @@ export const tours: Tour[] = [
   {
     id: "surf-coast-7day",
     title: "7 Days Atlantic Surf & Coast Adventure",
-    image: "/imgplaceholder.webp",
+    image: "/tours/surf-coast-7day.jpg",
     location: "Casablanca to Agadir, Morocco",
     price: 1180,
     originalPrice: 1390,
@@ -1881,7 +1881,7 @@ export const tours: Tour[] = [
   {
     id: "trekking-circuit-7day",
     title: "7 Days Atlas Trekking Circuit — Toubkal to M'Goun",
-    image: "/destinations/atlas.webp",
+    image: "/tours/trekking-circuit-7day.jpg",
     location: "Atlas Mountains, Morocco",
     price: 1290,
     originalPrice: 1490,
@@ -1904,7 +1904,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-complete-8day",
     title: "8 Days Complete Morocco from Casablanca",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/casablanca-complete-8day.jpg",
     location: "Casablanca to Marrakech, Morocco",
     price: 1490,
     originalPrice: 1750,
@@ -1925,7 +1925,7 @@ export const tours: Tour[] = [
   {
     id: "luxury-south-8day",
     title: "8 Days Luxury South Morocco Journey",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/luxury-south-8day.jpg",
     location: "Marrakech, Sahara & Agadir, Morocco",
     price: 3850,
     originalPrice: 4500,
@@ -1946,7 +1946,7 @@ export const tours: Tour[] = [
   {
     id: "imperial-riad-luxury-8day",
     title: "8 Days Imperial Cities Luxury Riad Collection",
-    image: "/amazigh.webp",
+    image: "/tours/imperial-riad-luxury-8day.jpg",
     location: "Casablanca, Fes, Chefchaouen & Marrakech, Morocco",
     price: 3650,
     originalPrice: 4200,
@@ -1969,7 +1969,7 @@ export const tours: Tour[] = [
   {
     id: "photography-nomad-9day",
     title: "9 Days Morocco Photography Nomad Expedition",
-    image: "/morocco-culture.webp",
+    image: "/tours/photography-nomad-9day.jpg",
     location: "Nationwide, Morocco",
     price: 1950,
     rating: 4.9,
@@ -1989,7 +1989,7 @@ export const tours: Tour[] = [
   {
     id: "desert-coast-north-10day",
     title: "10 Days Desert, Coast & Northern Morocco",
-    image: "/destinations/sahara.webp",
+    image: "/tours/desert-coast-north-10day.jpg",
     location: "Nationwide Morocco, Morocco",
     price: 2280,
     originalPrice: 2700,
@@ -2012,7 +2012,7 @@ export const tours: Tour[] = [
   {
     id: "grand-imperial-sahara-12day",
     title: "12 Days Grand Imperial Morocco & Sahara",
-    image: "/tours/grand-morocco-10day.webp",
+    image: "/tours/grand-imperial-sahara-12day.jpg",
     location: "All Imperial Cities & Sahara, Morocco",
     price: 2850,
     originalPrice: 3400,
@@ -2033,7 +2033,7 @@ export const tours: Tour[] = [
   {
     id: "adventure-complete-12day",
     title: "12 Days Adventure Morocco — Peaks, Gorges & Dunes",
-    image: "/destinations/atlas.webp",
+    image: "/tours/adventure-complete-12day.jpg",
     location: "Atlas Mountains & Sahara, Morocco",
     price: 2750,
     rating: 4.8,
@@ -2053,7 +2053,7 @@ export const tours: Tour[] = [
   {
     id: "complete-south-morocco-12day",
     title: "12 Days Complete Southern Morocco Journey",
-    image: "/amazigh.webp",
+    image: "/tours/complete-south-morocco-12day.jpg",
     location: "Marrakech to Casablanca via South, Morocco",
     price: 2650,
     originalPrice: 3150,
@@ -2076,7 +2076,7 @@ export const tours: Tour[] = [
   {
     id: "grand-tour-morocco-15day",
     title: "15 Days Grand Morocco Discovery — Every Region",
-    image: "/tours/complete-morocco-14day.webp",
+    image: "/tours/grand-tour-morocco-15day.jpg",
     location: "All Regions, Morocco",
     price: 3950,
     originalPrice: 4700,
@@ -2097,7 +2097,7 @@ export const tours: Tour[] = [
   {
     id: "ultimate-morocco-18day",
     title: "18 Days Ultimate Morocco Grand Journey",
-    image: "/tours/complete-morocco-14day.webp",
+    image: "/tours/ultimate-morocco-18day.jpg",
     location: "All Regions, Morocco",
     price: 5200,
     originalPrice: 6500,
@@ -2120,7 +2120,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-hammam-souk-halfday",
     title: "Marrakech Hammam & Souk Morning Experience",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/marrakech-hammam-souk-halfday.jpg",
     location: "Marrakech, Morocco",
     price: 75,
     rating: 4.8,
@@ -2140,7 +2140,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-jewish-quarter-tour",
     title: "Marrakech Mellah — Jewish Quarter Heritage Walk",
-    image: "/morocco-culture.webp",
+    image: "/tours/marrakech-jewish-quarter-tour.jpg",
     location: "Marrakech, Morocco",
     price: 60,
     rating: 4.7,
@@ -2160,7 +2160,7 @@ export const tours: Tour[] = [
   {
     id: "kik-plateau-atlas-day",
     title: "Kik Plateau & Moulay Brahim Atlas Day Trip",
-    image: "/destinations/atlas.webp",
+    image: "/tours/kik-plateau-atlas-day.jpg",
     location: "Kik Plateau, Morocco",
     price: 89,
     rating: 4.7,
@@ -2180,7 +2180,7 @@ export const tours: Tour[] = [
   {
     id: "ourika-berber-market-day",
     title: "Ourika Valley Berber Market & Terracotta Village Day",
-    image: "/amazigh.webp",
+    image: "/tours/ourika-berber-market-day.jpg",
     location: "Ourika Valley, Morocco",
     price: 79,
     rating: 4.6,
@@ -2200,7 +2200,7 @@ export const tours: Tour[] = [
   {
     id: "asilah-larache-coast-2day",
     title: "2 Days Asilah & Larache Atlantic Heritage Coast",
-    image: "/imgplaceholder.webp",
+    image: "/tours/asilah-larache-coast-2day.jpg",
     location: "Asilah & Larache, Morocco",
     price: 235,
     rating: 4.6,
@@ -2220,7 +2220,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-skoura-roses-3day",
     title: "3 Days Marrakech to Skoura — Valley of Roses",
-    image: "/destinations/sahara.webp",
+    image: "/tours/marrakech-skoura-roses-3day.jpg",
     location: "Skoura & Rose Valley, Morocco",
     price: 445,
     originalPrice: 530,
@@ -2241,7 +2241,7 @@ export const tours: Tour[] = [
   {
     id: "surf-taghazout-4day",
     title: "4 Days Taghazout Surf Camp — Agadir",
-    image: "/imgplaceholder.webp",
+    image: "/tours/surf-taghazout-4day.jpg",
     location: "Taghazout, Morocco",
     price: 599,
     originalPrice: 699,
@@ -2262,7 +2262,7 @@ export const tours: Tour[] = [
   {
     id: "marrakech-mountain-luxury-5day",
     title: "5 Days Luxury Marrakech & Atlas Mountain Retreat",
-    image: "/destinations/atlas.webp",
+    image: "/tours/marrakech-mountain-luxury-5day.jpg",
     location: "Marrakech & Atlas Mountains, Morocco",
     price: 2200,
     originalPrice: 2650,
@@ -2283,7 +2283,7 @@ export const tours: Tour[] = [
   {
     id: "fes-sahara-coast-6day",
     title: "6 Days Fes — Sahara — Atlantic Coast",
-    image: "/destinations/sahara.webp",
+    image: "/tours/fes-sahara-coast-6day.jpg",
     location: "Fes to Essaouira, Morocco",
     price: 1150,
     originalPrice: 1350,
@@ -2304,7 +2304,7 @@ export const tours: Tour[] = [
   {
     id: "casablanca-circuit-7day",
     title: "7 Days Classic Morocco from Casablanca",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/casablanca-circuit-7day.jpg",
     location: "Casablanca Circuit, Morocco",
     price: 1250,
     originalPrice: 1490,
@@ -2325,7 +2325,7 @@ export const tours: Tour[] = [
   {
     id: "agafay-glamping-luxury-1day",
     title: "Agafay Desert Overnight Luxury Glamping",
-    image: "/destinations/sahara.webp",
+    image: "/tours/agafay-glamping-luxury-1day.jpg",
     location: "Agafay Desert, Morocco",
     price: 259,
     originalPrice: 310,
@@ -2346,7 +2346,7 @@ export const tours: Tour[] = [
   {
     id: "agadir-day-trip-marrakech",
     title: "Agadir Beach Day Trip from Marrakech",
-    image: "/imgplaceholder.webp",
+    image: "/tours/agadir-day-trip-marrakech.jpg",
     location: "Agadir, Morocco",
     price: 99,
     originalPrice: 119,
@@ -2367,7 +2367,7 @@ export const tours: Tour[] = [
   {
     id: "demnate-imi-nifri-day",
     title: "Demnate & Imi n'Ifri Natural Bridge Day Trip",
-    image: "/destinations/atlas.webp",
+    image: "/tours/demnate-imi-nifri-day.jpg",
     location: "Demnate, Morocco",
     price: 85,
     rating: 4.7,
@@ -2391,7 +2391,7 @@ export const hotels: Hotel[] = [
     id: "royal-mansour",
     name: "Royal Mansour Marrakech",
     location: "Marrakech, Morocco",
-    image: "/moroccan-tiles.webp",
+    image: "/tours/royal-mansour.jpg",
     stars: 5,
     rating: 4.9,
     reviews: 1248,
@@ -2404,7 +2404,7 @@ export const hotels: Hotel[] = [
     id: "palais-namaskar",
     name: "Palais Namaskar",
     location: "Marrakech, Morocco",
-    image: "/moroccan-handicrafts.webp",
+    image: "/tours/palais-namaskar.jpg",
     stars: 5,
     rating: 4.8,
     reviews: 876,
@@ -2417,7 +2417,7 @@ export const hotels: Hotel[] = [
     id: "kasbah-tamadot",
     name: "Kasbah Tamadot",
     location: "Atlas Mountains, Morocco",
-    image: "/destinations/atlas.webp",
+    image: "/tours/kasbah-tamadot.jpg",
     stars: 5,
     rating: 4.9,
     reviews: 654,
@@ -2430,7 +2430,7 @@ export const hotels: Hotel[] = [
     id: "sahara-desert-lodge",
     name: "Erg Chebbi Desert Lodge",
     location: "Merzouga, Morocco",
-    image: "/destinations/sahara.webp",
+    image: "/tours/sahara-desert-lodge.jpg",
     stars: 4,
     rating: 4.8,
     reviews: 432,
@@ -2443,7 +2443,7 @@ export const hotels: Hotel[] = [
     id: "riad-fes",
     name: "Riad Fes — Relais & Châteaux",
     location: "Fes, Morocco",
-    image: "/amazigh.webp",
+    image: "/tours/riad-fes.jpg",
     stars: 5,
     rating: 4.7,
     reviews: 589,
@@ -2456,7 +2456,7 @@ export const hotels: Hotel[] = [
     id: "ocean-riad",
     name: "Villa Maroc Essaouira",
     location: "Essaouira, Morocco",
-    image: "/imgplaceholder.webp",
+    image: "/tours/ocean-riad.jpg",
     stars: 4,
     rating: 4.6,
     reviews: 312,
