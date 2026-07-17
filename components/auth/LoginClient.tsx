@@ -4,8 +4,8 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
-  FaEye, FaEyeSlash, FaGoogle, FaLock,
-  FaCompass, FaStar, FaArrowLeft,
+  FaEye, FaEyeSlash, FaGoogle, FaLock, FaUser,
+  FaCompass, FaStar, FaShieldAlt, FaArrowLeft,
   FaCheckCircle,
 } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
