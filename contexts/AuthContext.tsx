@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  createContext, useContext, useState, useEffect, useCallback, ReactNode,
+  createContext, useContext, useState, useEffect, useCallback, useRef, ReactNode,
 } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
@@ -121,7 +121,8 @@ function rowToMessage(r: MessageRow): Message {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const supabase = createClient();
+  const supabaseRef = useRef(createClient());
+  const supabase = supabaseRef.current;
 
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);

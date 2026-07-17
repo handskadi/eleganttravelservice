@@ -19,7 +19,7 @@ function AuthForm() {
   const isRTL = locale === "ar";
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { login, register, user } = useAuth();
+  const { login, register, user, loading: authLoading } = useAuth();
 
   const [mode, setMode] = useState<"login" | "signup">(
     searchParams.get("mode") === "signup" ? "signup" : "login"
@@ -32,36 +32,38 @@ function AuthForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
+  // Redirect already-authenticated users away from login page
   useEffect(() => {
-    if (user) {
-      if (user.role === "admin" || user.role === "agent") router.replace("/admin");
-      else router.replace("/dashboard");
+    if (user && !authLoading) {
+      const dest = (user.role === "admin" || user.role === "agent") ? "/admin" : "/dashboard";
+      window.location.href = dest;
     }
-  }, [user, router]);
+  }, [user, loading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-    await new Promise(r => setTimeout(r, 600));
 
     if (mode === "login") {
       const result = await login(email, password);
-      setLoading(false);
       if (result.success) {
         setSuccess(t("successLogin"));
-        const dest = (result.role === "admin" || result.role === "agent") ? "/admin" : "/dashboard";
-        setTimeout(() => router.push(dest), 800);
+        const dest = searchParams.get("next") ||
+          ((result.role === "admin" || result.role === "agent") ? "/admin" : "/dashboard");
+        // Hard navigation ensures middleware sees fresh session cookies
+        window.location.href = dest;
       } else {
+        setLoading(false);
         setError(result.message);
       }
     } else {
       const result = await register(name, email, password);
-      setLoading(false);
       if (result.success) {
         setSuccess(t("successSignup"));
-        setTimeout(() => router.push("/dashboard"), 800);
+        window.location.href = "/dashboard";
       } else {
+        setLoading(false);
         setError(result.message);
       }
     }
