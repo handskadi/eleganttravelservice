@@ -195,6 +195,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     initAuth();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      // INITIAL_SESSION fires on mount before initAuth() finishes — ignore it to
+      // avoid setting loading=false/user=null before the real session is loaded.
+      if (event === "INITIAL_SESSION") return;
+
       if (event === "SIGNED_OUT" || !session?.user) {
         setUser(null);
         setBookings([]);

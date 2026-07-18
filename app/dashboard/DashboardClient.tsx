@@ -47,7 +47,7 @@ function getMessageTypeIcon(type: Message["type"]) {
 }
 
 export default function DashboardPage() {
-  const { user, bookings, logout, getUserMessages, markMessageRead, getUnreadMessageCount } = useAuth();
+  const { user, loading, bookings, logout, getUserMessages, markMessageRead, getUnreadMessageCount } = useAuth();
   const { wishlist, removeFromWishlist } = useApp();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -56,10 +56,16 @@ export default function DashboardPage() {
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
 
   useEffect(() => {
-    if (!user) { router.replace("/login"); }
-  }, [user, router]);
+    if (!loading && !user) { router.replace("/login"); }
+  }, [user, loading, router]);
 
-  if (!user) return null;
+  if (loading || !user) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   const userBookings = bookings.filter(b => b.userId === user.id);
   const totalSpent = userBookings.reduce((s, b) => s + b.total, 0);
