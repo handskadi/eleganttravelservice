@@ -131,49 +131,38 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
-  // ── Fetch profile from DB ──────────────────────────────────────────────────
-  const fetchProfile = useCallback(async (sbUser: SupabaseUser) => {
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", sbUser.id)
-      .single();
+  // ── Fetch profile via server-side API (bypasses RLS) ─────────────────────
+  const fetchProfile = useCallback(async (_sbUser: SupabaseUser) => {
+    const res = await fetch("/api/profile", { credentials: "include" });
+    if (!res.ok) return null;
+    const profile = await res.json() as ProfileRow;
+    setUser(profileToUser(profile));
+    return profile;
+  }, []);
 
-    if (profile) {
-      setUser(profileToUser(profile as ProfileRow));
-      return profile as ProfileRow;
-    }
-    return null;
-  }, [supabase]);
+  // ── Fetch bookings via server route (bypasses RLS) ────────────────────────
+  const fetchBookings = useCallback(async (_profile: ProfileRow) => {
+    const res = await fetch("/api/bookings", { credentials: "include" });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (Array.isArray(data)) setBookings(data.map(rowToBooking));
+  }, []);
 
-  // ── Fetch bookings ─────────────────────────────────────────────────────────
-  const fetchBookings = useCallback(async (profile: ProfileRow) => {
-    let query = supabase.from("bookings").select("*").order("booked_at", { ascending: false });
+  // ── Fetch messages via server route (bypasses RLS) ────────────────────────
+  const fetchMessages = useCallback(async (_profileId: string) => {
+    const res = await fetch("/api/messages", { credentials: "include" });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (Array.isArray(data)) setMessages(data.map(rowToMessage));
+  }, []);
 
-    // Admin/agents see all bookings; users see only their own
-    if (profile.role === "user") {
-      query = query.eq("user_id", profile.id);
-    }
-
-    const { data } = await query;
-    if (data) setBookings(data.map(rowToBooking));
-  }, [supabase]);
-
-  // ── Fetch messages ─────────────────────────────────────────────────────────
-  const fetchMessages = useCallback(async (profileId: string) => {
-    const { data } = await supabase
-      .from("messages")
-      .select("*")
-      .or(`to_id.eq.${profileId},from_id.eq.${profileId}`)
-      .order("sent_at", { ascending: false });
-    if (data) setMessages(data.map(rowToMessage));
-  }, [supabase]);
-
-  // ── Fetch all users (admin only) ───────────────────────────────────────────
+  // ── Fetch all users via server route (admin/agent only) ───────────────────
   const fetchAllUsers = useCallback(async () => {
-    const { data } = await supabase.from("profiles").select("*").order("created_at", { ascending: false });
-    if (data) setAllUsers(data.map(r => profileToUser(r as ProfileRow)));
-  }, [supabase]);
+    const res = await fetch("/api/users", { credentials: "include" });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (Array.isArray(data)) setAllUsers(data.map(r => profileToUser(r as ProfileRow)));
+  }, []);
 
   // ── Bootstrap on mount ────────────────────────────────────────────────────
   useEffect(() => {
@@ -304,23 +293,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const updateBookingStatus = async (bookingId: string, status: Booking["status"]) => {
-    const { error } = await supabase
-      .from("bookings")
-      .update({ status })
-      .eq("id", bookingId);
-    if (!error) {
+    const res = await fetch("/api/bookings", {
+      method: "PATCH",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: bookingId, status }),
+    });
+    if (res.ok) {
       setBookings(prev => prev.map(b => b.id === bookingId ? { ...b, status } : b));
     }
   };
 
   const refreshBookings = async () => {
     if (!user) return;
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", user.id)
-      .single();
-    if (profile) await fetchBookings(profile as ProfileRow);
+    await fetchBookings({} as ProfileRow);
   };
 
   // ── Message actions ───────────────────────────────────────────────────────
@@ -348,7 +334,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const markMessageRead = async (messageId: string) => {
-    await supabase.from("messages").update({ read: true }).eq("id", messageId);
+    await fetch("/api/messages", {
+      method: "PATCH",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: messageId }),
+    });
     setMessages(prev => prev.map(m => m.id === messageId ? { ...m, read: true } : m));
   };
 
